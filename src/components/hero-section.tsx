@@ -5,14 +5,20 @@ import heroBg from "@/assets/hero-bg.jpg";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
-        <img
-          src={heroBg}
-          alt="Professional network visualization"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background/40 to-accent/20"></div>
+      {/* Modern Tech Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/30 to-secondary/20">
+        {/* Animated tech grid pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 25% 25%, hsl(var(--primary)) 2px, transparent 2px),
+                             radial-gradient(circle at 75% 75%, hsl(var(--accent)) 1px, transparent 1px)`,
+            backgroundSize: '60px 60px'
+          }}></div>
+        </div>
+        {/* Floating geometric shapes */}
+        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-primary opacity-20 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-40 right-32 w-48 h-48 bg-gradient-hero opacity-15 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-accent/30 rounded-full blur-lg animate-pulse" style={{animationDelay: '2s'}}></div>
       </div>
 
       {/* Content */}
