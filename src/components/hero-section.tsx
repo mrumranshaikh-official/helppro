@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Users, Shield, TrendingUp } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { ArrowRight, Users, Shield, TrendingUp, Rocket } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
@@ -24,8 +25,16 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto">
-          {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-secondary/80 backdrop-blur-sm border border-border mb-8">
+          {/* Launching Soon Badge */}
+          <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-primary/10 backdrop-blur-sm border border-primary/20 mb-8">
+            <Rocket className="w-5 h-5 text-primary mr-2 animate-pulse" />
+            <span className="text-lg font-semibold text-primary">
+              🚀 Launching Soon - Join the Revolution!
+            </span>
+          </div>
+
+          {/* Secondary Badge */}
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-secondary/80 backdrop-blur-sm border border-border mb-6">
             <Shield className="w-4 h-4 text-primary mr-2" />
             <span className="text-sm font-medium text-secondary-foreground">
               Verified Professional Network

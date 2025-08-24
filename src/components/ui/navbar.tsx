@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import ThemeToggle from "@/components/theme-toggle";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,9 +13,14 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                HelpPro
-              </h1>
+              <button
+                onClick={() => window.open('https://helppro.com', '_blank')}
+                className="cursor-pointer"
+              >
+                <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+                  HelpPro
+                </h1>
+              </button>
             </div>
           </div>
 
@@ -38,10 +44,20 @@ const Navbar = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
+            <ThemeToggle />
             <Button variant="ghost" className="text-foreground hover:text-primary">
               Sign In
             </Button>
-            <Button className="bg-gradient-primary hover:opacity-90 transition-opacity">
+            <Button 
+              className="bg-gradient-primary hover:opacity-90 transition-opacity"
+              onClick={() => {
+                const emailInput = document.querySelector('input[type="email"]') as HTMLInputElement;
+                if (emailInput) {
+                  emailInput.scrollIntoView({ behavior: 'smooth' });
+                  emailInput.focus();
+                }
+              }}
+            >
               Join Waitlist
             </Button>
           </div>
@@ -90,10 +106,24 @@ const Navbar = () => {
                 About
               </a>
               <div className="px-3 py-2 space-y-2">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm text-muted-foreground">Theme</span>
+                  <ThemeToggle />
+                </div>
                 <Button variant="ghost" className="w-full justify-start">
                   Sign In
                 </Button>
-                <Button className="w-full bg-gradient-primary hover:opacity-90 transition-opacity">
+                <Button 
+                  className="w-full bg-gradient-primary hover:opacity-90 transition-opacity"
+                  onClick={() => {
+                    const emailInput = document.querySelector('input[type="email"]') as HTMLInputElement;
+                    if (emailInput) {
+                      emailInput.scrollIntoView({ behavior: 'smooth' });
+                      emailInput.focus();
+                    }
+                    setIsMenuOpen(false);
+                  }}
+                >
                   Join Waitlist
                 </Button>
               </div>
