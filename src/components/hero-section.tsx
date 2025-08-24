@@ -25,10 +25,12 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Theme Toggle - Top Right of Hero */}
-        <div className="absolute top-8 right-8 z-20">
-          <div className="bg-card/80 backdrop-blur-sm border border-border rounded-full p-2">
-            <ThemeToggle />
+        {/* Theme Toggle - Responsive positioning */}
+        <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
+          <div className="bg-card/90 backdrop-blur-sm border border-border rounded-full p-1.5 md:p-2 shadow-lg">
+            <div className="scale-75 md:scale-100">
+              <ThemeToggle />
+            </div>
           </div>
         </div>
         

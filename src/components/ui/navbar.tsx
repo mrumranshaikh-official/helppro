@@ -14,7 +14,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <button
-                onClick={() => window.open('https://helppro.com', '_blank')}
+                onClick={() => window.open('https://helppro.lovable.app/', '_blank')}
                 className="cursor-pointer"
               >
                 <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
