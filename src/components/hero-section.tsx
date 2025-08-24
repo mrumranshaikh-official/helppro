@@ -56,6 +56,13 @@ const HeroSection = () => {
             <Button 
               size="lg" 
               className="bg-gradient-primary hover:opacity-90 transition-opacity shadow-lg text-lg px-8 py-4 h-auto"
+              onClick={() => {
+                const emailInput = document.querySelector('input[type="email"]') as HTMLInputElement;
+                if (emailInput) {
+                  emailInput.scrollIntoView({ behavior: 'smooth' });
+                  emailInput.focus();
+                }
+              }}
             >
               Join the Waitlist
               <ArrowRight className="ml-2 w-5 h-5" />

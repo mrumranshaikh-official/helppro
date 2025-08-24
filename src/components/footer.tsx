@@ -33,16 +33,36 @@ const Footer = () => {
               hands-on tasks. Turn your spare time into shared success.
             </p>
             <div className="flex space-x-4">
-              <Button variant="ghost" size="sm" className="p-2 hover:text-primary">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="p-2 hover:text-primary"
+                onClick={() => window.open('https://twitter.com/helppro', '_blank')}
+              >
                 <Twitter className="w-5 h-5" />
               </Button>
-              <Button variant="ghost" size="sm" className="p-2 hover:text-primary">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="p-2 hover:text-primary"
+                onClick={() => window.open('https://linkedin.com/company/helppro', '_blank')}
+              >
                 <Linkedin className="w-5 h-5" />
               </Button>
-              <Button variant="ghost" size="sm" className="p-2 hover:text-primary">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="p-2 hover:text-primary"
+                onClick={() => window.open('https://github.com/helppro', '_blank')}
+              >
                 <Github className="w-5 h-5" />
               </Button>
-              <Button variant="ghost" size="sm" className="p-2 hover:text-primary">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="p-2 hover:text-primary"
+                onClick={() => window.open('mailto:hello@helppro.com', '_blank')}
+              >
                 <Mail className="w-5 h-5" />
               </Button>
             </div>
@@ -119,8 +139,20 @@ const Footer = () => {
                 type="email"
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20"
+                id="waitlist-email"
               />
-              <Button className="bg-gradient-primary hover:opacity-90 px-6">
+              <Button 
+                className="bg-gradient-primary hover:opacity-90 px-6"
+                onClick={() => {
+                  const emailInput = document.getElementById('waitlist-email') as HTMLInputElement;
+                  if (emailInput && emailInput.value) {
+                    alert(`Thank you! We'll notify you at ${emailInput.value} when HelpPro launches.`);
+                    emailInput.value = '';
+                  } else {
+                    alert('Please enter your email address.');
+                  }
+                }}
+              >
                 Join Waitlist
               </Button>
             </div>
