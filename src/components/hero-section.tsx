@@ -36,9 +36,9 @@ const HeroSection = () => {
         
         <div className="max-w-4xl mx-auto">
           {/* Launching Soon Badge - Animated */}
-          <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-primary/10 backdrop-blur-sm border border-primary/20 mb-8 animate-fade-in hover-scale">
-            <Rocket className="w-5 h-5 text-primary mr-2 animate-pulse" />
-            <span className="text-lg font-semibold text-primary animate-pulse">
+          <div className="inline-flex items-center px-3 sm:px-6 py-2 sm:py-3 rounded-full bg-gradient-primary/10 backdrop-blur-sm border border-primary/20 mb-6 sm:mb-8 animate-fade-in hover-scale max-w-full">
+            <Rocket className="w-4 h-4 sm:w-5 sm:h-5 text-primary mr-1 sm:mr-2 animate-pulse flex-shrink-0" />
+            <span className="text-sm sm:text-lg font-semibold text-primary animate-pulse truncate">
               🚀 Launching Soon - Join the Revolution!
             </span>
           </div>
