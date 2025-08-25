@@ -149,3 +149,9 @@
     @apply bg-muted-foreground/50;
   }
 }
+
+@layer components {
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+}
