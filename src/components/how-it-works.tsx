@@ -100,14 +100,6 @@ const HowItWorks = () => {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <div className="inline-flex items-center px-6 py-3 rounded-full bg-primary/10 border border-primary/20">
-            <span className="text-primary font-medium">
-              Ready to transform your spare time into professional growth?
-            </span>
-          </div>
-        </div>
       </div>
     </section>
   );

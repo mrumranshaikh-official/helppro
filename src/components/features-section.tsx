@@ -134,21 +134,6 @@ const FeaturesSection = () => {
           ))}
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="inline-flex flex-col items-center p-8 rounded-2xl bg-gradient-secondary border border-border">
-            <h3 className="text-2xl font-bold mb-4">
-              Ready to Join the Future of Professional Support?
-            </h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl">
-              Be among the first to experience a professional network that actually works for professionals, 
-              by professionals.
-            </p>
-            <Badge variant="secondary" className="text-primary">
-              Coming Soon - Join the Waitlist
-            </Badge>
-          </div>
-        </div>
       </div>
     </section>
   );
