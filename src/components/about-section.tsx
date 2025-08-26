@@ -55,49 +55,25 @@ const AboutSection = () => {
           </Card>
         </div>
 
-        {/* Platform Technology Section */}
+        {/* Call to Action */}
         <div className="bg-gradient-secondary rounded-3xl p-8 md:p-12">
           <div className="max-w-4xl mx-auto text-center">
             <Badge variant="outline" className="mb-6">
-              Platform Technology
+              Join the Revolution
             </Badge>
-            <h3 className="text-3xl font-bold mb-6">Built for Scale & Security</h3>
+            <h3 className="text-3xl font-bold mb-6">Ready to Transform Your Professional Network?</h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-              <div className="p-4 rounded-lg bg-card/60 backdrop-blur-sm border border-border">
-                <Shield className="w-8 h-8 text-primary mx-auto mb-3" />
-                <h4 className="font-semibold mb-2">Enterprise Security</h4>
-                <p className="text-sm text-muted-foreground">End-to-end encryption and SOC 2 compliance</p>
-              </div>
-              <div className="p-4 rounded-lg bg-card/60 backdrop-blur-sm border border-border">
-                <Users className="w-8 h-8 text-primary mx-auto mb-3" />
-                <h4 className="font-semibold mb-2">Global Scale</h4>
-                <p className="text-sm text-muted-foreground">Cloud infrastructure supporting millions of users</p>
-              </div>
-              <div className="p-4 rounded-lg bg-card/60 backdrop-blur-sm border border-border">
-                <Target className="w-8 h-8 text-primary mx-auto mb-3" />
-                <h4 className="font-semibold mb-2">AI Matching</h4>
-                <p className="text-sm text-muted-foreground">Machine learning for optimal professional connections</p>
-              </div>
-              <div className="p-4 rounded-lg bg-card/60 backdrop-blur-sm border border-border">
-                <Heart className="w-8 h-8 text-primary mx-auto mb-3" />
-                <h4 className="font-semibold mb-2">24/7 Support</h4>
-                <p className="text-sm text-muted-foreground">Always-on community and automated assistance</p>
-              </div>
-            </div>
-
-            <blockquote className="text-lg leading-relaxed text-muted-foreground italic mb-6">
-              "HelpPro represents the future of professional collaboration—where technology meets human expertise 
-              to create unprecedented opportunities for growth, learning, and mutual success."
-            </blockquote>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Be among the first to experience a professional platform built for collaboration, growth, and mutual success.
+            </p>
             
             <div className="text-center">
               <Button className="bg-gradient-primary hover:opacity-90 mr-4">
                 <Mail className="w-4 h-4 mr-2" />
-                Contact Team
+                Join Waitlist
               </Button>
               <Button variant="outline">
-                View Roadmap
+                Learn More
               </Button>
             </div>
           </div>
