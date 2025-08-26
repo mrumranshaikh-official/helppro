@@ -55,81 +55,50 @@ const AboutSection = () => {
           </Card>
         </div>
 
-        {/* Founder Section */}
+        {/* Platform Technology Section */}
         <div className="bg-gradient-secondary rounded-3xl p-8 md:p-12">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <Badge variant="outline" className="mb-4">
-                Meet the Founder
-              </Badge>
-              <h3 className="text-3xl font-bold mb-4">Umran Shaikh</h3>
-              <p className="text-primary font-medium">Founder & Visionary</p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-              {/* Founder Avatar */}
-              <div className="text-center lg:text-left">
-                <Avatar className="w-32 h-32 mx-auto lg:mx-0 mb-4">
-                  <AvatarImage src="/api/placeholder/200/200" alt="Umran Shaikh" />
-                  <AvatarFallback className="bg-gradient-primary text-white text-2xl">US</AvatarFallback>
-                </Avatar>
-                
-                {/* Contact Info */}
-                <div className="space-y-3">
-                  <div className="flex items-center justify-center lg:justify-start">
-                    <Phone className="w-4 h-4 mr-2 text-primary" />
-                    <span className="text-sm">+91 80551 01869</span>
-                  </div>
-                  <div className="flex items-center justify-center lg:justify-start">
-                    <Mail className="w-4 h-4 mr-2 text-primary" />
-                    <a href="mailto:mrumranshaikh@gmail.com" className="text-sm hover:text-primary transition-colors">
-                      mrumranshaikh@gmail.com
-                    </a>
-                  </div>
-                  <div className="flex items-center justify-center lg:justify-start">
-                    <Instagram className="w-4 h-4 mr-2 text-primary" />
-                    <a href="https://instagram.com/umran_80.ig" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-primary transition-colors">
-                      @umran_80.ig
-                    </a>
-                  </div>
-                </div>
+          <div className="max-w-4xl mx-auto text-center">
+            <Badge variant="outline" className="mb-6">
+              Platform Technology
+            </Badge>
+            <h3 className="text-3xl font-bold mb-6">Built for Scale & Security</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+              <div className="p-4 rounded-lg bg-card/60 backdrop-blur-sm border border-border">
+                <Shield className="w-8 h-8 text-primary mx-auto mb-3" />
+                <h4 className="font-semibold mb-2">Enterprise Security</h4>
+                <p className="text-sm text-muted-foreground">End-to-end encryption and SOC 2 compliance</p>
               </div>
-
-              {/* Founder Message */}
-              <div className="lg:col-span-2">
-                <blockquote className="text-lg leading-relaxed text-muted-foreground italic mb-6">
-                  "I envision HelpPro as a powerful, trusted support system—where verified professionals stand by each other during moments of overload, stress or uncertainty. In today's high-pressure work culture, no professional should ever feel isolated or without options."
-                </blockquote>
-                
-                <div className="space-y-4 text-muted-foreground">
-                  <p>
-                    Recent tragic losses including the suicides of IT professionals burdened by burnout are a wake-up call. These aren't just headlines, they are lives that could have been saved with timely support, empathy and a system that values people over deadlines.
-                  </p>
-                  
-                  <p>
-                    Though I don't come from an IT background, I come with a deep desire to build something revolutionary. HelpPro is my answer—a transparent points-based ecosystem where helping others earns value and asking for help is seen as strength, not weakness.
-                  </p>
-                  
-                  <p className="font-medium text-foreground">
-                    HelpPro is more than a tool, it's my commitment to a fairer, more humane professional world.
-                  </p>
-                </div>
+              <div className="p-4 rounded-lg bg-card/60 backdrop-blur-sm border border-border">
+                <Users className="w-8 h-8 text-primary mx-auto mb-3" />
+                <h4 className="font-semibold mb-2">Global Scale</h4>
+                <p className="text-sm text-muted-foreground">Cloud infrastructure supporting millions of users</p>
+              </div>
+              <div className="p-4 rounded-lg bg-card/60 backdrop-blur-sm border border-border">
+                <Target className="w-8 h-8 text-primary mx-auto mb-3" />
+                <h4 className="font-semibold mb-2">AI Matching</h4>
+                <p className="text-sm text-muted-foreground">Machine learning for optimal professional connections</p>
+              </div>
+              <div className="p-4 rounded-lg bg-card/60 backdrop-blur-sm border border-border">
+                <Heart className="w-8 h-8 text-primary mx-auto mb-3" />
+                <h4 className="font-semibold mb-2">24/7 Support</h4>
+                <p className="text-sm text-muted-foreground">Always-on community and automated assistance</p>
               </div>
             </div>
 
-            {/* CTA */}
-            <div className="text-center mt-8 pt-8 border-t border-border">
-              <h4 className="text-xl font-semibold mb-4">Want to Connect?</h4>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button className="bg-gradient-primary hover:opacity-90">
-                  <Mail className="w-4 h-4 mr-2" />
-                  Send Message
-                </Button>
-                <Button variant="outline">
-                  <Instagram className="w-4 h-4 mr-2" />
-                  Follow on Instagram
-                </Button>
-              </div>
+            <blockquote className="text-lg leading-relaxed text-muted-foreground italic mb-6">
+              "HelpPro represents the future of professional collaboration—where technology meets human expertise 
+              to create unprecedented opportunities for growth, learning, and mutual success."
+            </blockquote>
+            
+            <div className="text-center">
+              <Button className="bg-gradient-primary hover:opacity-90 mr-4">
+                <Mail className="w-4 h-4 mr-2" />
+                Contact Team
+              </Button>
+              <Button variant="outline">
+                View Roadmap
+              </Button>
             </div>
           </div>
         </div>

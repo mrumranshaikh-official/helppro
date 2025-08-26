@@ -35,11 +35,11 @@ const HeroSection = () => {
         </div>
         
         <div className="max-w-4xl mx-auto">
-          {/* Launching Soon Badge - Animated */}
-          <div className="inline-flex items-center px-3 sm:px-6 py-2 sm:py-3 rounded-full bg-gradient-primary/10 backdrop-blur-sm border border-primary/20 mb-6 sm:mb-8 animate-fade-in hover-scale max-w-full">
-            <Rocket className="w-4 h-4 sm:w-5 sm:h-5 text-primary mr-1 sm:mr-2 animate-pulse flex-shrink-0" />
-            <span className="text-sm sm:text-lg font-semibold text-primary animate-pulse truncate">
-              🚀 Launching Soon - Join the Revolution!
+          {/* Launching Soon Badge - Mobile Responsive */}
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-primary/10 backdrop-blur-sm border border-primary/20 mb-6 sm:mb-8 animate-fade-in hover-scale">
+            <Rocket className="w-4 h-4 text-primary mr-2 animate-pulse flex-shrink-0" />
+            <span className="text-sm font-semibold text-primary animate-pulse">
+              🚀 Launching Soon - Professional Network Revolution
             </span>
           </div>
 
@@ -53,62 +53,69 @@ const HeroSection = () => {
 
           {/* Main Headline */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 animate-fade-in" style={{animationDelay: '0.4s'}}>
-            Turn Your{" "}
+            Professional{" "}
             <span className="bg-gradient-hero bg-clip-text text-transparent">
-              Spare Time
+              Collaboration
             </span>{" "}
-            Into{" "}
+            <br className="hidden md:block" />
             <span className="bg-gradient-hero bg-clip-text text-transparent">
-              Shared Success
+              Reimagined
             </span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{animationDelay: '0.6s'}}>
-            The first peer-to-peer network where IT professionals help each other with real, 
-            hands-on tasks. Earn points by helping, spend points to get help. 
-            <strong className="text-foreground"> Fair. Transparent. Reliable.</strong>
+            Advanced peer-to-peer platform connecting verified IT professionals worldwide. 
+            Real-time collaboration, transparent point system, and professional growth opportunities.
+            <strong className="text-foreground"> Built for the future of work.</strong>
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex justify-center items-center mb-12 animate-fade-in" style={{animationDelay: '0.8s'}}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in" style={{animationDelay: '0.8s'}}>
             <Button 
               size="lg" 
-              className="bg-gradient-primary hover:opacity-90 transition-opacity shadow-lg text-lg px-8 py-4 h-auto hover-scale"
+              className="bg-gradient-primary hover:opacity-90 transition-opacity shadow-lg text-lg px-8 py-4 h-auto hover-scale w-full sm:w-auto"
               onClick={() => {
-                const emailInput = document.querySelector('input[type="email"]') as HTMLInputElement;
+                const emailInput = document.getElementById('waitlist-email') as HTMLInputElement;
                 if (emailInput) {
                   emailInput.scrollIntoView({ behavior: 'smooth' });
                   emailInput.focus();
                 }
               }}
             >
-              Join the Waitlist
+              Get Early Access
               <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline"
+              className="text-lg px-8 py-4 h-auto hover-scale w-full sm:w-auto"
+            >
+              View Platform Demo
             </Button>
           </div>
 
-          {/* Trust Indicators */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto animate-fade-in" style={{animationDelay: '1s'}}>
+          {/* Advanced Platform Features */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto animate-fade-in" style={{animationDelay: '1s'}}>
             <div className="flex flex-col items-center p-6 rounded-xl bg-card/60 backdrop-blur-sm border border-border hover-scale">
               <Users className="w-8 h-8 text-primary mb-3" />
-              <h3 className="font-semibold text-lg mb-2">Verified Professionals</h3>
+              <h3 className="font-semibold text-lg mb-2">AI-Powered Matching</h3>
               <p className="text-muted-foreground text-center">
-                Every member is verified with LinkedIn and skills assessment
+                Smart algorithms connect you with professionals who have the exact skills you need
               </p>
             </div>
             <div className="flex flex-col items-center p-6 rounded-xl bg-card/60 backdrop-blur-sm border border-border hover-scale">
               <Shield className="w-8 h-8 text-accent mb-3" />
-              <h3 className="font-semibold text-lg mb-2">Transparent Points</h3>
+              <h3 className="font-semibold text-lg mb-2">Professional Dashboard</h3>
               <p className="text-muted-foreground text-center">
-                Fair exchange system with mandatory payback and credibility tracking
+                Advanced analytics, collaboration history, and skill development tracking
               </p>
             </div>
             <div className="flex flex-col items-center p-6 rounded-xl bg-card/60 backdrop-blur-sm border border-border hover-scale">
               <TrendingUp className="w-8 h-8 text-success mb-3" />
-              <h3 className="font-semibold text-lg mb-2">Real-time Help</h3>
+              <h3 className="font-semibold text-lg mb-2">Signal System</h3>
               <p className="text-muted-foreground text-center">
-                Get immediate assistance from skilled professionals worldwide
+                Real-time availability signals and instant professional networking
               </p>
             </div>
           </div>
