@@ -119,7 +119,7 @@ const ValidationSection = () => {
                 trustworthy, skill-based help that actually works.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="text-center">
                 <CheckCircle className="w-8 h-8 text-green-500 mx-auto mb-2" />
                 <h4 className="font-semibold mb-1">Verified Only</h4>
@@ -127,18 +127,13 @@ const ValidationSection = () => {
               </div>
               <div className="text-center">
                 <CheckCircle className="w-8 h-8 text-green-500 mx-auto mb-2" />
-                <h4 className="font-semibold mb-1">Fair Exchange</h4>
-                <p className="text-sm text-muted-foreground">Mandatory payback system</p>
+                <h4 className="font-semibold mb-1">Fair Point Exchange</h4>
+                <p className="text-sm text-muted-foreground">Transparent, mandatory payback</p>
               </div>
               <div className="text-center">
                 <CheckCircle className="w-8 h-8 text-green-500 mx-auto mb-2" />
-                <h4 className="font-semibold mb-1">Real-time Help</h4>
-                <p className="text-sm text-muted-foreground">Instant matching & availability</p>
-              </div>
-              <div className="text-center">
-                <CheckCircle className="w-8 h-8 text-green-500 mx-auto mb-2" />
-                <h4 className="font-semibold mb-1">No Politics</h4>
-                <p className="text-sm text-muted-foreground">Pure peer-to-peer support</p>
+                <h4 className="font-semibold mb-1">Real-time Matching</h4>
+                <p className="text-sm text-muted-foreground">Instant skill-based connections</p>
               </div>
             </div>
           </Card>
