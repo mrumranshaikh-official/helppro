@@ -36,34 +36,6 @@ const ValidationSection = () => {
     }
   ];
 
-  const mvpFeatures = [
-    { feature: "Simple LinkedIn verification", priority: "Must-have" },
-    { feature: "Post & match help requests", priority: "Must-have" },
-    { feature: "Expertise showcase profiles", priority: "Must-have" },
-    { feature: "Controlled messaging system", priority: "Must-have" },
-    { feature: "Trust signals & gamification", priority: "Must-have" },
-    { feature: "Advanced analytics dashboard", priority: "Nice-to-have" },
-    { feature: "Video call integration", priority: "Nice-to-have" }
-  ];
-
-  const monetizationStreams = [
-    {
-      title: "Top-up Points",
-      description: "Buy extra points for urgent help when your balance is low",
-      icon: Zap
-    },
-    {
-      title: "Premium Mentorship",
-      description: "Connect with senior professionals for career guidance",
-      icon: Trophy
-    },
-    {
-      title: "Hiring Partnerships",
-      description: "Companies scout top helpers and post hiring opportunities",
-      icon: Briefcase
-    }
-  ];
-
   return (
     <section id="validation" className="py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -171,78 +143,15 @@ const ValidationSection = () => {
           </Card>
         </div>
 
-        {/* MVP Features */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          <Card>
-            <CardHeader>
-              <CardTitle>MVP Launch Features</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-3">
-                {mvpFeatures.map((item, index) => (
-                  <div key={index} className="flex items-center justify-between">
-                    <span className="text-sm">{item.feature}</span>
-                    <Badge variant={item.priority === "Must-have" ? "default" : "secondary"}>
-                      {item.priority}
-                    </Badge>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Launch Strategy</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex items-center">
-                <CheckCircle className="w-4 h-4 mr-2 text-green-500" />
-                <span className="text-sm">Web-first platform (not mobile app)</span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircle className="w-4 h-4 mr-2 text-green-500" />
-                <span className="text-sm">Target verified IT professionals only</span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircle className="w-4 h-4 mr-2 text-green-500" />
-                <span className="text-sm">Early-access leaderboard challenges</span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircle className="w-4 h-4 mr-2 text-green-500" />
-                <span className="text-sm">Seed with experienced mentors</span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircle className="w-4 h-4 mr-2 text-green-500" />
-                <span className="text-sm">Highlight successful matches publicly</span>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Monetization Preview */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-center mb-8">Sustainable Monetization</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {monetizationStreams.map((stream, index) => (
-              <Card key={index} className="text-center p-6">
-                <stream.icon className="w-8 h-8 text-primary mx-auto mb-4" />
-                <h4 className="font-semibold mb-2">{stream.title}</h4>
-                <p className="text-sm text-muted-foreground">{stream.description}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* Success Formula */}
+        {/* Success Promise */}
         <Card className="p-8 text-center bg-gradient-primary">
-          <h3 className="text-2xl font-bold text-white mb-4">Our Success Formula</h3>
+          <h3 className="text-2xl font-bold text-white mb-4">Join the Professional Revolution</h3>
           <p className="text-white/90 text-lg mb-6">
-            Validate demand → Build core features → Focus on trust & convenience → 
-            Make it professional-only → Monetize fairly
+            Be part of a community where helping others creates real professional value. 
+            No corporate politics, just skilled professionals supporting each other.
           </p>
           <Button variant="secondary" size="lg">
-            Join the Validation
+            Get Early Access
           </Button>
         </Card>
       </div>
