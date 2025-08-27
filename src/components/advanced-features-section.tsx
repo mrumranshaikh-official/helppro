@@ -37,7 +37,7 @@ const AdvancedFeaturesSection = () => {
             Core Features
           </Badge>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            How <span className="bg-gradient-primary bg-clip-text text-transparent">HelpPro</span> Works
+            Core <span className="bg-gradient-primary bg-clip-text text-transparent">Platform</span> Features
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             A simple, transparent platform connecting IT professionals for mutual support and growth.
