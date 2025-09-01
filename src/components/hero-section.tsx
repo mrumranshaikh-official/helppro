@@ -53,21 +53,21 @@ const HeroSection = () => {
 
           {/* Main Headline */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 animate-fade-in" style={{animationDelay: '0.4s'}}>
-            Professional{" "}
+            Get Instant{" "}
             <span className="bg-gradient-hero bg-clip-text text-transparent">
-              Collaboration
+              Peer Support
             </span>{" "}
             <br className="hidden md:block" />
+            For Your{" "}
             <span className="bg-gradient-hero bg-clip-text text-transparent">
-              Reimagined
+              Professional Challenges
             </span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{animationDelay: '0.6s'}}>
-            Advanced peer-to-peer platform connecting verified IT professionals worldwide. 
-            Real-time collaboration, transparent point system, and professional growth opportunities.
-            <strong className="text-foreground"> Built for the future of work.</strong>
+            Connect with verified professionals in seconds. Give help, get help back. 
+            <strong className="text-foreground"> Real expertise when you need it most.</strong>
           </p>
 
           {/* CTA Buttons */}
@@ -83,7 +83,7 @@ const HeroSection = () => {
                 }
               }}
             >
-              Get Early Access
+              Join First 1000 Members Free
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button 
