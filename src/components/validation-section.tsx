@@ -88,64 +88,57 @@ const ValidationSection = () => {
           </Card>
         </div>
 
-        {/* Live Community Preview */}
+        {/* Live Community Activity */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-center mb-8">See It In Action</h3>
-          <Card className="p-6 bg-muted/30">
-            <div className="text-center mb-6">
-              <Badge variant="outline" className="mb-2">Live Preview</Badge>
-              <p className="text-muted-foreground">Recent help requests from our early community</p>
+          <h3 className="text-2xl font-bold text-center mb-8">Live Community Activity</h3>
+          <div className="space-y-4 max-w-2xl mx-auto">
+            <div className="flex items-center justify-between p-4 bg-background rounded-lg border">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                  <span className="text-white text-sm font-semibold">SJ</span>
+                </div>
+                <div>
+                  <p className="font-medium">Sarah J. - Frontend Dev</p>
+                  <p className="text-sm text-muted-foreground">Needs: React testing setup</p>
+                </div>
+              </div>
+              <Badge variant="secondary">2 min ago</Badge>
             </div>
-            <div className="space-y-4 max-w-2xl mx-auto">
-              <div className="flex items-center justify-between p-4 bg-background rounded-lg border">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm font-semibold">SJ</span>
-                  </div>
-                  <div>
-                    <p className="font-medium">Sarah J. - Frontend Dev</p>
-                    <p className="text-sm text-muted-foreground">Needs: React testing setup</p>
-                  </div>
+            <div className="flex items-center justify-between p-4 bg-background rounded-lg border">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
+                  <span className="text-white text-sm font-semibold">MK</span>
                 </div>
-                <Badge variant="secondary">2 min ago</Badge>
-              </div>
-              <div className="flex items-center justify-between p-4 bg-background rounded-lg border">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm font-semibold">MK</span>
-                  </div>
-                  <div>
-                    <p className="font-medium">Mike K. - DevOps</p>
-                    <p className="text-sm text-muted-foreground">Offering: Docker optimization tips</p>
-                  </div>
+                <div>
+                  <p className="font-medium">Mike K. - DevOps</p>
+                  <p className="text-sm text-muted-foreground">Offering: Docker optimization tips</p>
                 </div>
-                <Badge className="bg-green-500 text-white">Available</Badge>
               </div>
-              <div className="flex items-center justify-between p-4 bg-background rounded-lg border">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm font-semibold">AL</span>
-                  </div>
-                  <div>
-                    <p className="font-medium">Alex L. - Designer</p>
-                    <p className="text-sm text-muted-foreground">Helped: UX audit completed ✓</p>
-                  </div>
-                </div>
-                <Badge variant="outline">+15 points</Badge>
-              </div>
+              <Badge className="bg-green-500 text-white">Available</Badge>
             </div>
-          </Card>
+            <div className="flex items-center justify-between p-4 bg-background rounded-lg border">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
+                  <span className="text-white text-sm font-semibold">AL</span>
+                </div>
+                <div>
+                  <p className="font-medium">Alex L. - Designer</p>
+                  <p className="text-sm text-muted-foreground">Helped: UX audit completed ✓</p>
+                </div>
+              </div>
+              <Badge variant="outline">+15 points</Badge>
+            </div>
+          </div>
         </div>
 
-        {/* Exclusive CTA */}
+        {/* Join CTA */}
         <Card className="p-8 text-center bg-gradient-primary">
-          <h3 className="text-2xl font-bold text-white mb-4">Be One of the First 1000</h3>
+          <h3 className="text-2xl font-bold text-white mb-4">Join the First 1000 Members</h3>
           <p className="text-white/90 text-lg mb-6">
-            Early members shape the platform and get lifetime benefits. 
-            <strong>Limited spots available.</strong>
+            Shape the platform and get lifetime benefits.
           </p>
           <Button variant="secondary" size="lg" className="text-lg px-8">
-            Claim Your Spot Now
+            Join Now - Free
           </Button>
         </Card>
       </div>
