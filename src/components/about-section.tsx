@@ -55,16 +55,13 @@ const AboutSection = () => {
           </Card>
         </div>
 
-        {/* Call to Action */}
+        {/* Simple CTA */}
         <div className="bg-gradient-secondary rounded-3xl p-8 md:p-12">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge variant="outline" className="mb-6">
-              Join the Revolution
-            </Badge>
-            <h3 className="text-3xl font-bold mb-6">Ready to Transform Your Professional Network?</h3>
+            <h3 className="text-3xl font-bold mb-6">Get Early Access</h3>
             
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Be among the first to experience a professional platform built for collaboration, growth, and mutual success.
+              Be among the first to experience a professional platform built for collaboration and growth.
             </p>
             
             <div className="text-center">

@@ -128,7 +128,7 @@ const Footer = () => {
           <div className="text-center max-w-2xl mx-auto">
             <Globe className="w-8 h-8 text-primary mx-auto mb-4" />
             <h3 className="text-2xl font-bold mb-4">
-              Join the Professional Revolution
+              Stay Updated
             </h3>
             <p className="text-muted-foreground mb-6">
               Be the first to know when HelpPro launches. Get exclusive early access and 
