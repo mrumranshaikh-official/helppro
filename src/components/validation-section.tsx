@@ -56,43 +56,41 @@ const ValidationSection = () => {
 
         {/* What Makes Us Different */}
         <div className="mb-16">
-          <Card className="p-8 bg-gradient-to-r from-primary/5 to-accent/5 border-primary/20">
-            <div className="text-center mb-8">
-              <h3 className="text-3xl font-bold mb-4">Your Professional Safety Net</h3>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                A reciprocal community where helping others builds your own professional insurance.
-              </p>
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold mb-4">Your Professional Safety Net</h3>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              A reciprocal community where helping others builds your own professional insurance.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            <div className="text-center">
+              <CheckCircle className="w-8 h-8 text-green-500 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Verified Professionals Only</h4>
+              <p className="text-sm text-muted-foreground">Skills + identity verification</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="text-center">
-                <CheckCircle className="w-8 h-8 text-green-500 mx-auto mb-2" />
-                <h4 className="font-semibold mb-1">Verified Professionals Only</h4>
-                <p className="text-sm text-muted-foreground">Skills + identity verification</p>
-              </div>
-              <div className="text-center">
-                <CheckCircle className="w-8 h-8 text-green-500 mx-auto mb-2" />
-                <h4 className="font-semibold mb-1">Give & Get System</h4>
-                <p className="text-sm text-muted-foreground">Help others to earn help credits</p>
-              </div>
-              <div className="text-center">
-                <CheckCircle className="w-8 h-8 text-green-500 mx-auto mb-2" />
-                <h4 className="font-semibold mb-1">Instant Matching</h4>
-                <p className="text-sm text-muted-foreground">Real-time skill-based connections</p>
-              </div>
-              <div className="text-center">
-                <CheckCircle className="w-8 h-8 text-green-500 mx-auto mb-2" />
-                <h4 className="font-semibold mb-1">Recognition System</h4>
-                <p className="text-sm text-muted-foreground">Build reputation by helping</p>
-              </div>
+            <div className="text-center">
+              <CheckCircle className="w-8 h-8 text-green-500 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Give & Get System</h4>
+              <p className="text-sm text-muted-foreground">Help others to earn help credits</p>
             </div>
-          </Card>
+            <div className="text-center">
+              <CheckCircle className="w-8 h-8 text-green-500 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Instant Matching</h4>
+              <p className="text-sm text-muted-foreground">Real-time skill-based connections</p>
+            </div>
+            <div className="text-center">
+              <CheckCircle className="w-8 h-8 text-green-500 mx-auto mb-3" />
+              <h4 className="font-semibold mb-2">Recognition System</h4>
+              <p className="text-sm text-muted-foreground">Build reputation by helping</p>
+            </div>
+          </div>
         </div>
 
         {/* Live Community Activity */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-center mb-8">Live Community Activity</h3>
-          <div className="space-y-4 max-w-2xl mx-auto">
-            <div className="flex items-center justify-between p-4 bg-background rounded-lg border">
+          <div className="space-y-3 max-w-2xl mx-auto">
+            <div className="flex items-center justify-between p-4 rounded-lg hover:bg-muted/20 transition-colors">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
                   <span className="text-white text-sm font-semibold">SJ</span>
@@ -104,7 +102,7 @@ const ValidationSection = () => {
               </div>
               <Badge variant="secondary">2 min ago</Badge>
             </div>
-            <div className="flex items-center justify-between p-4 bg-background rounded-lg border">
+            <div className="flex items-center justify-between p-4 rounded-lg hover:bg-muted/20 transition-colors">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
                   <span className="text-white text-sm font-semibold">MK</span>
@@ -116,7 +114,7 @@ const ValidationSection = () => {
               </div>
               <Badge className="bg-green-500 text-white">Available</Badge>
             </div>
-            <div className="flex items-center justify-between p-4 bg-background rounded-lg border">
+            <div className="flex items-center justify-between p-4 rounded-lg hover:bg-muted/20 transition-colors">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
                   <span className="text-white text-sm font-semibold">AL</span>
@@ -132,7 +130,7 @@ const ValidationSection = () => {
         </div>
 
         {/* Join CTA */}
-        <Card className="p-8 text-center bg-gradient-primary">
+        <div className="p-8 text-center bg-gradient-primary rounded-3xl">
           <h3 className="text-2xl font-bold text-white mb-4">Join the First 1000 Members</h3>
           <p className="text-white/90 text-lg mb-6">
             Shape the platform and get lifetime benefits.
@@ -140,7 +138,7 @@ const ValidationSection = () => {
           <Button variant="secondary" size="lg" className="text-lg px-8">
             Join Now - Free
           </Button>
-        </Card>
+        </div>
       </div>
     </section>
   );
