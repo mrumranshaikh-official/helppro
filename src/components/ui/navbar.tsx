@@ -1,16 +1,29 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, User, LogOut } from "lucide-react";
 import { useState } from "react";
 import ThemeToggle from "@/components/theme-toggle";
+import { useAuth } from "@/contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, signOut, loading } = useAuth();
+  const navigate = useNavigate();
+
+  const handleAuthAction = () => {
+    if (user) {
+      signOut();
+    } else {
+      navigate('/auth');
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
@@ -72,21 +85,44 @@ const Navbar = () => {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
             <ThemeToggle />
-            <Button variant="ghost" className="text-foreground hover:text-primary">
-              Sign In
-            </Button>
-            <Button 
-              className="bg-gradient-primary hover:opacity-90 transition-opacity"
-              onClick={() => {
-                const emailInput = document.querySelector('input[type="email"]') as HTMLInputElement;
-                if (emailInput) {
-                  emailInput.scrollIntoView({ behavior: 'smooth' });
-                  emailInput.focus();
-                }
-              }}
-            >
-              Join Waitlist
-            </Button>
+            {!loading && (
+              <>
+                {user ? (
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="outline" className="flex items-center gap-2">
+                        <User className="h-4 w-4" />
+                        {user.email?.split('@')[0]}
+                        <ChevronDown className="h-4 w-4" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end" className="w-56">
+                      <DropdownMenuItem>
+                        <User className="mr-2 h-4 w-4" />
+                        Profile
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem onClick={signOut}>
+                        <LogOut className="mr-2 h-4 w-4" />
+                        Sign Out
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                ) : (
+                  <>
+                    <Button variant="ghost" className="text-foreground hover:text-primary" onClick={() => navigate('/auth')}>
+                      Sign In
+                    </Button>
+                    <Button 
+                      className="bg-gradient-primary hover:opacity-90 transition-opacity"
+                      onClick={() => navigate('/auth')}
+                    >
+                      Get Started
+                    </Button>
+                  </>
+                )}
+              </>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -137,22 +173,33 @@ const Navbar = () => {
                   <span className="text-sm text-muted-foreground">Theme</span>
                   <ThemeToggle />
                 </div>
-                <Button variant="ghost" className="w-full justify-start">
-                  Sign In
-                </Button>
-                <Button 
-                  className="w-full bg-gradient-primary hover:opacity-90 transition-opacity"
-                  onClick={() => {
-                    const emailInput = document.querySelector('input[type="email"]') as HTMLInputElement;
-                    if (emailInput) {
-                      emailInput.scrollIntoView({ behavior: 'smooth' });
-                      emailInput.focus();
-                    }
-                    setIsMenuOpen(false);
-                  }}
-                >
-                  Join Waitlist
-                </Button>
+                {!loading && (
+                  <>
+                    {user ? (
+                      <>
+                        <div className="px-3 py-2 text-sm text-muted-foreground border-t border-border">
+                          Signed in as {user.email?.split('@')[0]}
+                        </div>
+                        <Button variant="ghost" className="w-full justify-start" onClick={signOut}>
+                          <LogOut className="mr-2 h-4 w-4" />
+                          Sign Out
+                        </Button>
+                      </>
+                    ) : (
+                      <>
+                        <Button variant="ghost" className="w-full justify-start" onClick={() => navigate('/auth')}>
+                          Sign In
+                        </Button>
+                        <Button 
+                          className="w-full bg-gradient-primary hover:opacity-90 transition-opacity"
+                          onClick={() => navigate('/auth')}
+                        >
+                          Get Started
+                        </Button>
+                      </>
+                    )}
+                  </>
+                )}
               </div>
             </div>
           </div>
