@@ -54,37 +54,6 @@ const ValidationSection = () => {
           </p>
         </div>
 
-        {/* What Makes Us Different */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold mb-4">Your Professional Safety Net</h3>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              A reciprocal community where helping others builds your own professional insurance.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            <div className="text-center">
-              <CheckCircle className="w-8 h-8 text-green-500 mx-auto mb-3" />
-              <h4 className="font-semibold mb-2">Verified Professionals Only</h4>
-              <p className="text-sm text-muted-foreground">Skills + identity verification</p>
-            </div>
-            <div className="text-center">
-              <CheckCircle className="w-8 h-8 text-green-500 mx-auto mb-3" />
-              <h4 className="font-semibold mb-2">Give & Get System</h4>
-              <p className="text-sm text-muted-foreground">Help others to earn help credits</p>
-            </div>
-            <div className="text-center">
-              <CheckCircle className="w-8 h-8 text-green-500 mx-auto mb-3" />
-              <h4 className="font-semibold mb-2">Instant Matching</h4>
-              <p className="text-sm text-muted-foreground">Real-time skill-based connections</p>
-            </div>
-            <div className="text-center">
-              <CheckCircle className="w-8 h-8 text-green-500 mx-auto mb-3" />
-              <h4 className="font-semibold mb-2">Recognition System</h4>
-              <p className="text-sm text-muted-foreground">Build reputation by helping</p>
-            </div>
-          </div>
-        </div>
 
         {/* Live Community Activity */}
         <div className="mb-16">
@@ -129,16 +98,6 @@ const ValidationSection = () => {
           </div>
         </div>
 
-        {/* Join CTA */}
-        <div className="p-8 text-center bg-gradient-primary rounded-3xl">
-          <h3 className="text-2xl font-bold text-white mb-4">Join the First 1000 Members</h3>
-          <p className="text-white/90 text-lg mb-6">
-            Shape the platform and get lifetime benefits.
-          </p>
-          <Button variant="secondary" size="lg" className="text-lg px-8">
-            Join Now - Free
-          </Button>
-        </div>
       </div>
     </section>
   );
