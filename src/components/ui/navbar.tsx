@@ -1,7 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import ThemeToggle from "@/components/theme-toggle";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,15 +33,36 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#how-it-works" className="text-foreground hover:text-primary transition-colors">
-                How it Works
-              </a>
-              <a href="#features" className="text-foreground hover:text-primary transition-colors">
-                Features
-              </a>
-              <a href="#community" className="text-foreground hover:text-primary transition-colors">
-                Community
-              </a>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="text-foreground hover:text-primary transition-colors p-0 h-auto font-normal">
+                    <Menu size={20} className="mr-2" />
+                    <ChevronDown size={16} />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="w-48 bg-card/95 backdrop-blur-lg border border-border">
+                  <DropdownMenuItem asChild>
+                    <a href="#how-it-works" className="w-full cursor-pointer hover:text-primary transition-colors">
+                      How it Works
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <a href="#features" className="w-full cursor-pointer hover:text-primary transition-colors">
+                      Features
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <a href="#pricing" className="w-full cursor-pointer hover:text-primary transition-colors">
+                      Pricing
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <a href="#roadmap" className="w-full cursor-pointer hover:text-primary transition-colors">
+                      Roadmap
+                    </a>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
               <a href="#about" className="text-foreground hover:text-primary transition-colors">
                 About
               </a>

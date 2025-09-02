@@ -91,30 +91,35 @@ const HeroSection = () => {
 
           {/* Live Chat Demo */}
           <div className="mb-12 animate-fade-in" style={{animationDelay: '1s'}}>
-            <h3 className="text-2xl font-bold text-center mb-8">See HelpPro in Action</h3>
             <ChatSimulation />
           </div>
 
           {/* Advanced Platform Features */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto animate-fade-in" style={{animationDelay: '1.2s'}}>
-            <div className="flex flex-col items-center p-6 rounded-xl bg-card/60 backdrop-blur-sm border border-border hover-scale">
-              <Users className="w-8 h-8 text-primary mb-3" />
-              <h3 className="font-semibold text-lg mb-2">AI-Powered Matching</h3>
-              <p className="text-muted-foreground text-center">
+            <div className="group flex flex-col items-center p-8 rounded-2xl bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Users className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="font-bold text-xl mb-3 text-center group-hover:text-primary transition-colors">AI-Powered Matching</h3>
+              <p className="text-muted-foreground text-center leading-relaxed">
                 Smart algorithms connect you with professionals who have the exact skills you need
               </p>
             </div>
-            <div className="flex flex-col items-center p-6 rounded-xl bg-card/60 backdrop-blur-sm border border-border hover-scale">
-              <Shield className="w-8 h-8 text-accent mb-3" />
-              <h3 className="font-semibold text-lg mb-2">Professional Dashboard</h3>
-              <p className="text-muted-foreground text-center">
+            <div className="group flex flex-col items-center p-8 rounded-2xl bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border border-border/50 hover:border-accent/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/10">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Shield className="w-8 h-8 text-accent" />
+              </div>
+              <h3 className="font-bold text-xl mb-3 text-center group-hover:text-accent transition-colors">Professional Dashboard</h3>
+              <p className="text-muted-foreground text-center leading-relaxed">
                 Advanced analytics, collaboration history, and skill development tracking
               </p>
             </div>
-            <div className="flex flex-col items-center p-6 rounded-xl bg-card/60 backdrop-blur-sm border border-border hover-scale">
-              <TrendingUp className="w-8 h-8 text-success mb-3" />
-              <h3 className="font-semibold text-lg mb-2">Signal System</h3>
-              <p className="text-muted-foreground text-center">
+            <div className="group flex flex-col items-center p-8 rounded-2xl bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border border-border/50 hover:border-success/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-success/10">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-success/20 to-success/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <TrendingUp className="w-8 h-8 text-success" />
+              </div>
+              <h3 className="font-bold text-xl mb-3 text-center group-hover:text-success transition-colors">Signal System</h3>
+              <p className="text-muted-foreground text-center leading-relaxed">
                 Real-time availability signals and instant professional networking
               </p>
             </div>
