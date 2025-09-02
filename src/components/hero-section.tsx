@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Users, Shield, TrendingUp, Rocket } from "lucide-react";
 import ThemeToggle from "@/components/theme-toggle";
+import ChatSimulation from "@/components/chat-simulation";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
@@ -70,8 +71,8 @@ const HeroSection = () => {
             <strong className="text-foreground"> Real expertise when you need it most.</strong>
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in" style={{animationDelay: '0.8s'}}>
+          {/* CTA Button */}
+          <div className="flex justify-center items-center mb-12 animate-fade-in" style={{animationDelay: '0.8s'}}>
             <Button 
               size="lg" 
               className="bg-gradient-primary hover:opacity-90 transition-opacity shadow-lg text-lg px-8 py-4 h-auto hover-scale w-full sm:w-auto"
@@ -86,17 +87,16 @@ const HeroSection = () => {
               Join First 1000 Members Free
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="text-lg px-8 py-4 h-auto hover-scale w-full sm:w-auto"
-            >
-              View Platform Demo
-            </Button>
+          </div>
+
+          {/* Live Chat Demo */}
+          <div className="mb-12 animate-fade-in" style={{animationDelay: '1s'}}>
+            <h3 className="text-2xl font-bold text-center mb-8">See HelpPro in Action</h3>
+            <ChatSimulation />
           </div>
 
           {/* Advanced Platform Features */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto animate-fade-in" style={{animationDelay: '1s'}}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto animate-fade-in" style={{animationDelay: '1.2s'}}>
             <div className="flex flex-col items-center p-6 rounded-xl bg-card/60 backdrop-blur-sm border border-border hover-scale">
               <Users className="w-8 h-8 text-primary mb-3" />
               <h3 className="font-semibold text-lg mb-2">AI-Powered Matching</h3>

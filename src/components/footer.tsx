@@ -123,41 +123,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Newsletter Section */}
-        <div className="bg-gradient-secondary rounded-2xl p-8 mb-12">
-          <div className="text-center max-w-2xl mx-auto">
-            <Globe className="w-8 h-8 text-primary mx-auto mb-4" />
-            <h3 className="text-2xl font-bold mb-4">
-              Stay Updated
-            </h3>
-            <p className="text-muted-foreground mb-6">
-              Be the first to know when HelpPro launches. Get exclusive early access and 
-              help shape the future of professional collaboration.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20"
-                id="waitlist-email"
-              />
-              <Button 
-                className="bg-gradient-primary hover:opacity-90 px-6"
-                onClick={() => {
-                  const emailInput = document.getElementById('waitlist-email') as HTMLInputElement;
-                  if (emailInput && emailInput.value) {
-                    alert(`Thank you! We'll notify you at ${emailInput.value} when HelpPro launches.`);
-                    emailInput.value = '';
-                  } else {
-                    alert('Please enter your email address.');
-                  }
-                }}
-              >
-                Join Waitlist
-              </Button>
-            </div>
-          </div>
-        </div>
 
         <Separator className="mb-8" />
 
