@@ -1,16 +1,37 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Users, Shield, TrendingUp, Rocket } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Card, CardContent } from "@/components/ui/card";
+import { ArrowRight, Users, Shield, TrendingUp, Rocket, Star, Clock, CheckCircle } from "lucide-react";
 import ThemeToggle from "@/components/theme-toggle";
 import ChatSimulation from "@/components/chat-simulation";
-import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
+  const communityMembers = [
+    { name: "Sarah Chen", avatar: "/api/placeholder/40/40", role: "DevOps" },
+    { name: "Marcus R.", avatar: "/api/placeholder/40/40", role: "Frontend" },
+    { name: "Aisha P.", avatar: "/api/placeholder/40/40", role: "QA Lead" },
+    { name: "David K.", avatar: "/api/placeholder/40/40", role: "Security" },
+    { name: "Maria G.", avatar: "/api/placeholder/40/40", role: "Full Stack" }
+  ];
+
+  const trustStats = [
+    { value: "95%", label: "Success Rate" },
+    { value: "15 min", label: "Avg Response" },
+    { value: "500+", label: "Professionals" }
+  ];
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Modern Tech Background */}
+      {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/30 to-secondary/20">
-        {/* Animated tech grid pattern */}
+        {/* Animated particles */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-primary rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute bottom-40 right-32 w-48 h-48 bg-gradient-hero rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-accent/30 rounded-full blur-lg animate-pulse" style={{animationDelay: '2s'}}></div>
+        </div>
+        {/* Tech grid */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 25% 25%, hsl(var(--primary)) 2px, transparent 2px),
@@ -18,15 +39,11 @@ const HeroSection = () => {
             backgroundSize: '60px 60px'
           }}></div>
         </div>
-        {/* Floating geometric shapes */}
-        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-primary opacity-20 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-40 right-32 w-48 h-48 bg-gradient-hero opacity-15 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-accent/30 rounded-full blur-lg animate-pulse" style={{animationDelay: '2s'}}></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Theme Toggle - Responsive positioning */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Theme Toggle */}
         <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
           <div className="bg-card/90 backdrop-blur-sm border border-border rounded-full p-1.5 md:p-2 shadow-lg">
             <div className="scale-75 md:scale-100">
@@ -34,94 +51,146 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-        
-        <div className="max-w-4xl mx-auto">
-          {/* Launching Soon Badge - Mobile Responsive */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-primary/10 backdrop-blur-sm border border-primary/20 mb-6 sm:mb-8 animate-fade-in hover-scale">
-            <Rocket className="w-4 h-4 text-primary mr-2 animate-pulse flex-shrink-0" />
-            <span className="text-sm font-semibold text-primary animate-pulse">
-              🚀 Launching Soon - Professional Network Revolution
-            </span>
+
+        {/* 2-Column Layout for Desktop */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen py-12">
+          {/* Left Column - Main Content */}
+          <div className="text-center lg:text-left">
+            {/* Trust Stats - High Priority */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-6 mb-8 animate-fade-in">
+              {trustStats.map((stat, index) => (
+                <Card key={index} className="bg-card/80 backdrop-blur-sm border-primary/20 hover-scale">
+                  <CardContent className="p-4 text-center">
+                    <div className="text-2xl font-bold text-primary">{stat.value}</div>
+                    <div className="text-xs text-muted-foreground">{stat.label}</div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {/* Main Headline */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 animate-fade-in" style={{animationDelay: '0.2s'}}>
+              Get Instant{" "}
+              <span className="bg-gradient-hero bg-clip-text text-transparent">
+                Peer Support
+              </span>{" "}
+              <br />
+              For Your{" "}
+              <span className="bg-gradient-hero bg-clip-text text-transparent">
+                Professional Challenges
+              </span>
+            </h1>
+
+            {/* Launching Soon Badge - Below Headline */}
+            <div className="flex justify-center lg:justify-start mb-6 animate-fade-in" style={{animationDelay: '0.4s'}}>
+              <Badge className="bg-gradient-primary/10 text-primary border-primary/20 hover-scale px-4 py-2">
+                <Rocket className="w-4 h-4 mr-2 animate-pulse" />
+                🚀 Launching Soon - Professional Network Revolution
+              </Badge>
+            </div>
+
+            {/* Subheadline */}
+            <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 leading-relaxed animate-fade-in" style={{animationDelay: '0.6s'}}>
+              Connect with verified professionals in seconds. Give help, get help back. 
+              <strong className="text-foreground"> Real expertise when you need it most.</strong>
+            </p>
+
+            {/* Community Proof */}
+            <div className="mb-8 animate-fade-in" style={{animationDelay: '0.8s'}}>
+              <div className="flex items-center justify-center lg:justify-start mb-3">
+                <div className="flex -space-x-2">
+                  {communityMembers.map((member, index) => (
+                    <Avatar key={index} className="w-10 h-10 border-2 border-background hover-scale">
+                      <AvatarImage src={member.avatar} alt={member.name} />
+                      <AvatarFallback className="bg-gradient-primary text-white text-sm">
+                        {member.name.split(' ').map(n => n[0]).join('')}
+                      </AvatarFallback>
+                    </Avatar>
+                  ))}
+                  <div className="w-10 h-10 bg-muted/80 border-2 border-background rounded-full flex items-center justify-center">
+                    <span className="text-xs font-semibold text-muted-foreground">+495</span>
+                  </div>
+                </div>
+                <div className="ml-4">
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse mr-2"></div>
+                    <span className="text-sm font-medium text-foreground">287 professionals online now</span>
+                  </div>
+                  <div className="text-xs text-muted-foreground">Join verified IT professionals</div>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="flex justify-center lg:justify-start mb-8 animate-fade-in" style={{animationDelay: '1s'}}>
+              <Button 
+                size="lg" 
+                className="bg-gradient-primary hover:opacity-90 transition-all duration-300 shadow-lg text-lg px-8 py-4 h-auto hover-scale group"
+                onClick={() => {
+                  const emailInput = document.getElementById('waitlist-email') as HTMLInputElement;
+                  if (emailInput) {
+                    emailInput.scrollIntoView({ behavior: 'smooth' });
+                    emailInput.focus();
+                  }
+                }}
+              >
+                Join First 1000 Members Free
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </div>
+
+            {/* Trust Badges */}
+            <div className="flex items-center justify-center lg:justify-start gap-6 mb-8 animate-fade-in" style={{animationDelay: '1.2s'}}>
+              <Badge variant="outline" className="text-xs">
+                <Shield className="w-3 h-3 mr-1" />
+                Verified Professionals
+              </Badge>
+              <Badge variant="outline" className="text-xs">
+                <Star className="w-3 h-3 mr-1" />
+                4.9/5 Rating
+              </Badge>
+              <Badge variant="outline" className="text-xs">
+                <CheckCircle className="w-3 h-3 mr-1" />
+                No-Spam Promise
+              </Badge>
+            </div>
           </div>
 
-          {/* Secondary Badge */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-secondary/80 backdrop-blur-sm border border-border mb-6 animate-fade-in" style={{animationDelay: '0.2s'}}>
-            <Shield className="w-4 h-4 text-primary mr-2" />
-            <span className="text-sm font-medium text-secondary-foreground">
-              Verified Professional Network
-            </span>
-          </div>
-
-          {/* Main Headline */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 animate-fade-in" style={{animationDelay: '0.4s'}}>
-            Get Instant{" "}
-            <span className="bg-gradient-hero bg-clip-text text-transparent">
-              Peer Support
-            </span>{" "}
-            <br className="hidden md:block" />
-            For Your{" "}
-            <span className="bg-gradient-hero bg-clip-text text-transparent">
-              Professional Challenges
-            </span>
-          </h1>
-
-          {/* Subheadline */}
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{animationDelay: '0.6s'}}>
-            Connect with verified professionals in seconds. Give help, get help back. 
-            <strong className="text-foreground"> Real expertise when you need it most.</strong>
-          </p>
-
-          {/* CTA Button */}
-          <div className="flex justify-center items-center mb-12 animate-fade-in" style={{animationDelay: '0.8s'}}>
-            <Button 
-              size="lg" 
-              className="bg-gradient-primary hover:opacity-90 transition-opacity shadow-lg text-lg px-8 py-4 h-auto hover-scale w-full sm:w-auto"
-              onClick={() => {
-                const emailInput = document.getElementById('waitlist-email') as HTMLInputElement;
-                if (emailInput) {
-                  emailInput.scrollIntoView({ behavior: 'smooth' });
-                  emailInput.focus();
-                }
-              }}
-            >
-              Join First 1000 Members Free
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-          </div>
-
-          {/* Live Chat Demo */}
-          <div className="mb-12 animate-fade-in" style={{animationDelay: '1s'}}>
+          {/* Right Column - Interactive Demo */}
+          <div className="animate-fade-in" style={{animationDelay: '1.4s'}}>
             <ChatSimulation />
-          </div>
-
-          {/* Advanced Platform Features */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto animate-fade-in" style={{animationDelay: '1.2s'}}>
-            <div className="group flex flex-col items-center p-8 rounded-2xl bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Users className="w-8 h-8 text-primary" />
+            
+            {/* Advanced Platform Features */}
+            <div className="mt-8 space-y-4">
+              <div className="group flex items-center p-4 rounded-xl bg-gradient-to-r from-card/80 to-card/40 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-300 hover-scale">
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                  <Users className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">AI-Powered Matching</h3>
+                  <p className="text-sm text-muted-foreground">Smart algorithms connect you with exact expertise</p>
+                </div>
               </div>
-              <h3 className="font-bold text-xl mb-3 text-center group-hover:text-primary transition-colors">AI-Powered Matching</h3>
-              <p className="text-muted-foreground text-center leading-relaxed">
-                Smart algorithms connect you with professionals who have the exact skills you need
-              </p>
-            </div>
-            <div className="group flex flex-col items-center p-8 rounded-2xl bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border border-border/50 hover:border-accent/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/10">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Shield className="w-8 h-8 text-accent" />
+              
+              <div className="group flex items-center p-4 rounded-xl bg-gradient-to-r from-card/80 to-card/40 backdrop-blur-sm border border-border/50 hover:border-accent/30 transition-all duration-300 hover-scale">
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                  <Shield className="w-6 h-6 text-accent" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg group-hover:text-accent transition-colors">Professional Dashboard</h3>
+                  <p className="text-sm text-muted-foreground">Analytics, history, and skill development tracking</p>
+                </div>
               </div>
-              <h3 className="font-bold text-xl mb-3 text-center group-hover:text-accent transition-colors">Professional Dashboard</h3>
-              <p className="text-muted-foreground text-center leading-relaxed">
-                Advanced analytics, collaboration history, and skill development tracking
-              </p>
-            </div>
-            <div className="group flex flex-col items-center p-8 rounded-2xl bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border border-border/50 hover:border-success/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-success/10">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-success/20 to-success/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <TrendingUp className="w-8 h-8 text-success" />
+              
+              <div className="group flex items-center p-4 rounded-xl bg-gradient-to-r from-card/80 to-card/40 backdrop-blur-sm border border-border/50 hover:border-success/30 transition-all duration-300 hover-scale">
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-success/20 to-success/10 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                  <TrendingUp className="w-6 h-6 text-success" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg group-hover:text-success transition-colors">Signal System</h3>
+                  <p className="text-sm text-muted-foreground">Real-time availability and instant networking</p>
+                </div>
               </div>
-              <h3 className="font-bold text-xl mb-3 text-center group-hover:text-success transition-colors">Signal System</h3>
-              <p className="text-muted-foreground text-center leading-relaxed">
-                Real-time availability signals and instant professional networking
-              </p>
             </div>
           </div>
         </div>
