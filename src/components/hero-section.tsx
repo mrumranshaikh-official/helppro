@@ -53,19 +53,22 @@ const HeroSection = () => {
         </div>
 
         {/* 2-Column Layout for Desktop */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-screen py-8 sm:py-12">
           {/* Left Column - Main Content */}
-          <div className="text-center lg:text-left">
+          <div className="text-center lg:text-left px-4 sm:px-0 order-2 lg:order-1">
             {/* Main Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 animate-fade-in" style={{animationDelay: '0.2s'}}>
-              Get Instant{" "}
-              <span className="bg-gradient-hero bg-clip-text text-transparent">
-                Peer Support
-              </span>{" "}
-              <br />
-              For Your{" "}
-              <span className="bg-gradient-hero bg-clip-text text-transparent">
-                Professional Challenges
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 animate-fade-in px-2 sm:px-0" style={{animationDelay: '0.2s'}}>
+              <span className="block mb-2 animate-fade-in" style={{animationDelay: '0.3s'}}>
+                Get Instant{" "}
+                <span className="bg-gradient-hero bg-clip-text text-transparent animate-pulse">
+                  Peer Support
+                </span>
+              </span>
+              <span className="block animate-fade-in" style={{animationDelay: '0.5s'}}>
+                For Your{" "}
+                <span className="bg-gradient-hero bg-clip-text text-transparent">
+                  Professional Challenges
+                </span>
               </span>
             </h1>
 
@@ -78,9 +81,9 @@ const HeroSection = () => {
             </div>
 
             {/* Subheadline */}
-            <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 leading-relaxed animate-fade-in" style={{animationDelay: '0.6s'}}>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 leading-relaxed animate-fade-in px-2 sm:px-0 max-w-2xl mx-auto lg:mx-0" style={{animationDelay: '0.7s'}}>
               Connect with verified professionals in seconds. Give help, get help back. 
-              <strong className="text-foreground"> Real expertise when you need it most.</strong>
+              <strong className="text-foreground block sm:inline mt-1 sm:mt-0"> Real expertise when you need it most.</strong>
             </p>
 
             {/* Community Proof */}
@@ -157,7 +160,7 @@ const HeroSection = () => {
           </div>
 
           {/* Right Column - Interactive Demo */}
-          <div className="animate-fade-in" style={{animationDelay: '1.4s'}}>
+          <div className="animate-fade-in order-1 lg:order-2 mb-8 lg:mb-0" style={{animationDelay: '1.4s'}}>
             <ChatSimulation />
             
             {/* Advanced Platform Features */}
