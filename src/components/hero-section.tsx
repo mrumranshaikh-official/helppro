@@ -56,15 +56,15 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-screen py-8 sm:py-12">
           {/* Left Column - Main Content */}
           <div className="text-center lg:text-left px-4 sm:px-0 order-2 lg:order-1">
-            {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 animate-fade-in px-2 sm:px-0" style={{animationDelay: '0.2s'}}>
-              <span className="block mb-2 animate-fade-in" style={{animationDelay: '0.3s'}}>
+            {/* Main Headline - Top Priority */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-8 animate-fade-in px-2 sm:px-0" style={{animationDelay: '0.1s'}}>
+              <span className="block mb-3 animate-fade-in hover-scale inline-block" style={{animationDelay: '0.2s'}}>
                 Get Instant{" "}
                 <span className="bg-gradient-hero bg-clip-text text-transparent animate-pulse">
                   Peer Support
                 </span>
               </span>
-              <span className="block animate-fade-in" style={{animationDelay: '0.5s'}}>
+              <span className="block animate-fade-in hover-scale inline-block" style={{animationDelay: '0.4s'}}>
                 For Your{" "}
                 <span className="bg-gradient-hero bg-clip-text text-transparent">
                   Professional Challenges
@@ -73,7 +73,7 @@ const HeroSection = () => {
             </h1>
 
             {/* Launching Soon Badge - Below Headline */}
-            <div className="flex justify-center lg:justify-start mb-6 animate-fade-in" style={{animationDelay: '0.4s'}}>
+            <div className="flex justify-center lg:justify-start mb-6 animate-fade-in" style={{animationDelay: '0.6s'}}>
               <Badge className="bg-gradient-primary/10 text-primary border-primary/20 hover-scale px-4 py-2">
                 <Rocket className="w-4 h-4 mr-2 animate-pulse" />
                 🚀 Launching Soon - Professional Network Revolution
@@ -81,13 +81,13 @@ const HeroSection = () => {
             </div>
 
             {/* Subheadline */}
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 leading-relaxed animate-fade-in px-2 sm:px-0 max-w-2xl mx-auto lg:mx-0" style={{animationDelay: '0.7s'}}>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 leading-relaxed animate-fade-in px-2 sm:px-0 max-w-2xl mx-auto lg:mx-0" style={{animationDelay: '0.8s'}}>
               Connect with verified professionals in seconds. Give help, get help back. 
               <strong className="text-foreground block sm:inline mt-1 sm:mt-0"> Real expertise when you need it most.</strong>
             </p>
 
             {/* Community Proof */}
-            <div className="mb-8 animate-fade-in" style={{animationDelay: '0.8s'}}>
+            <div className="mb-8 animate-fade-in" style={{animationDelay: '1s'}}>
               <div className="flex items-center justify-center lg:justify-start mb-3">
                 <div className="flex -space-x-2">
                   {communityMembers.map((member, index) => (
@@ -113,7 +113,7 @@ const HeroSection = () => {
             </div>
 
             {/* CTA Button */}
-            <div className="flex justify-center lg:justify-start mb-8 animate-fade-in" style={{animationDelay: '1s'}}>
+            <div className="flex justify-center lg:justify-start mb-8 animate-fade-in" style={{animationDelay: '1.2s'}}>
               <Button 
                 size="lg" 
                 className="bg-gradient-primary hover:opacity-90 transition-all duration-300 shadow-lg text-lg px-8 py-4 h-auto hover-scale group"
@@ -131,7 +131,7 @@ const HeroSection = () => {
             </div>
 
             {/* Trust Stats - Below CTA */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-6 mb-8 animate-fade-in">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-6 mb-8 animate-fade-in" style={{animationDelay: '1.4s'}}>
               {trustStats.map((stat, index) => (
                 <Card key={index} className="bg-card/80 backdrop-blur-sm border-primary/20 hover-scale">
                   <CardContent className="p-4 text-center">
@@ -143,7 +143,7 @@ const HeroSection = () => {
             </div>
 
             {/* Trust Badges */}
-            <div className="flex items-center justify-center lg:justify-start gap-6 mb-8 animate-fade-in" style={{animationDelay: '1.2s'}}>
+            <div className="flex items-center justify-center lg:justify-start gap-6 mb-8 animate-fade-in" style={{animationDelay: '1.6s'}}>
               <Badge variant="outline" className="text-xs">
                 <Shield className="w-3 h-3 mr-1" />
                 Verified Professionals
