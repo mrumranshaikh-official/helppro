@@ -56,18 +56,6 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen py-12">
           {/* Left Column - Main Content */}
           <div className="text-center lg:text-left">
-            {/* Trust Stats - High Priority */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-6 mb-8 animate-fade-in">
-              {trustStats.map((stat, index) => (
-                <Card key={index} className="bg-card/80 backdrop-blur-sm border-primary/20 hover-scale">
-                  <CardContent className="p-4 text-center">
-                    <div className="text-2xl font-bold text-primary">{stat.value}</div>
-                    <div className="text-xs text-muted-foreground">{stat.label}</div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
             {/* Main Headline */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 animate-fade-in" style={{animationDelay: '0.2s'}}>
               Get Instant{" "}
@@ -137,6 +125,18 @@ const HeroSection = () => {
                 Join First 1000 Members Free
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
+            </div>
+
+            {/* Trust Stats - Below CTA */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-6 mb-8 animate-fade-in">
+              {trustStats.map((stat, index) => (
+                <Card key={index} className="bg-card/80 backdrop-blur-sm border-primary/20 hover-scale">
+                  <CardContent className="p-4 text-center">
+                    <div className="text-2xl font-bold text-primary">{stat.value}</div>
+                    <div className="text-xs text-muted-foreground">{stat.label}</div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
 
             {/* Trust Badges */}
