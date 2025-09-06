@@ -16,6 +16,7 @@ import GamificationSection from "@/components/gamification-section";
 import HelpSystemSection from "@/components/help-system-section";
 import ValidationSection from "@/components/validation-section";
 import AboutSection from "@/components/about-section";
+import ChallengesSolutionSection from "@/components/challenges-solution-section";
 
 const SectionsCarousel = () => {
   const [api, setApi] = useState<CarouselApi>();
@@ -23,6 +24,12 @@ const SectionsCarousel = () => {
   const [count, setCount] = useState(0);
 
   const sections = [
+    {
+      id: "challenges-solution",
+      title: "Our Solution",
+      description: "How we solve professional challenges",
+      component: <ChallengesSolutionSection />,
+    },
     {
       id: "live-activity",
       title: "Live Community",
