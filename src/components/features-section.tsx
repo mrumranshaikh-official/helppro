@@ -13,57 +13,51 @@ import {
 } from "lucide-react";
 
 const FeaturesSection = () => {
-  const primaryFeatures = [
+  const allFeatures = [
     {
       icon: Globe,
       title: "Borderless Network",
-      description: "Connect with IT professionals worldwide. No geographical limitations, just global expertise at your fingertips.",
-      highlight: "Global Reach"
+      description: "Connect with IT professionals worldwide. No geographical limitations."
     },
     {
       icon: Clock,
       title: "Real-time Assistance",
-      description: "Get help when you need it most. Our network operates 24/7 across all time zones for immediate support.",
-      highlight: "24/7 Support"
+      description: "Get help 24/7 across all time zones for immediate support."
     },
     {
       icon: Award,
       title: "Verified Expertise",
-      description: "Every member is LinkedIn-verified with skill assessments. Work with proven professionals you can trust.",
-      highlight: "Verified Skills"
-    }
-  ];
-
-  const secondaryFeatures = [
+      description: "LinkedIn-verified professionals with skill assessments."
+    },
     {
       icon: TrendingUp,
       title: "Fair Point System",
-      description: "Transparent points economy ensures fair exchange. Help others, earn points, get help when needed."
+      description: "Transparent points economy ensures fair exchange."
     },
     {
       icon: Users,
       title: "Credibility Tracking",
-      description: "Build your professional reputation through consistent help and quality work."
+      description: "Build reputation through consistent help and quality work."
     },
     {
       icon: Shield,
       title: "Mandatory Payback",
-      description: "System-enforced reciprocity ensures everyone contributes to the community."
+      description: "System-enforced reciprocity ensures everyone contributes."
     },
     {
       icon: Zap,
       title: "Instant Matching",
-      description: "AI-powered matching connects you with the right expert for your specific needs."
+      description: "AI-powered matching connects you with the right expert."
     },
     {
       icon: Target,
       title: "Skill-based Routing",
-      description: "Your requests reach professionals with the exact expertise you need."
+      description: "Reach professionals with exact expertise you need."
     },
     {
       icon: Heart,
       title: "Burnout Prevention",
-      description: "Share the load, reduce stress, and create a sustainable work-life balance."
+      description: "Share the load and create sustainable work-life balance."
     }
   ];
 
@@ -71,69 +65,32 @@ const FeaturesSection = () => {
     <section id="features" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4">
-            <Zap className="w-4 h-4 mr-2" />
-            Powerful Features
-          </Badge>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Built for{" "}
-            <span className="bg-gradient-hero bg-clip-text text-transparent">
-              Modern Professionals
-            </span>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            Discover all the features and benefits HelpPro offers
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Everything you need to build a reliable professional network that works for you, 
-            not against you. No corporate politics, just pure peer-to-peer support.
-          </p>
         </div>
 
-        {/* Primary Features */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-          {primaryFeatures.map((feature, index) => (
-            <Card key={index} className="relative overflow-hidden bg-gradient-card border-border hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-              <div className="absolute inset-0 bg-gradient-hero opacity-0 group-hover:opacity-5 transition-opacity duration-300"></div>
-              <CardContent className="p-8 relative z-10">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                    <feature.icon className="w-7 h-7" />
+        {/* All Features in One Box */}
+        <Card className="border-border shadow-xl">
+          <CardContent className="p-8 md:p-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {allFeatures.map((feature, index) => (
+                <div key={index} className="flex flex-col items-center text-center group">
+                  <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                    <feature.icon className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors" />
                   </div>
-                  <Badge variant="outline" className="group-hover:border-primary transition-colors">
-                    {feature.highlight}
-                  </Badge>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                    {feature.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed text-lg">
-                  {feature.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* Secondary Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {secondaryFeatures.map((feature, index) => (
-            <Card key={index} className="bg-card/50 backdrop-blur-sm border-border hover:bg-card hover:shadow-md transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-secondary text-primary flex-shrink-0">
-                    <feature.icon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2">{feature.title}</h4>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
+              ))}
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );
