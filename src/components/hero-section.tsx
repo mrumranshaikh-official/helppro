@@ -23,22 +23,21 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-muted/30 to-accent/5">
-      {/* Large Circular Graphics */}
+      {/* Refined Circular Graphics */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Main hero circle */}
-        <div className="absolute top-10 right-10 w-96 h-96 lg:w-[600px] lg:h-[600px] bg-gradient-warm rounded-full opacity-90 animate-pulse" style={{animationDelay: '0s'}}></div>
+        {/* Main hero circle - subtle and clean */}
+        <div className="absolute top-10 right-10 w-96 h-96 lg:w-[600px] lg:h-[600px] bg-gradient-warm rounded-full opacity-20 transition-opacity duration-1000"></div>
         
-        {/* Smaller accent circles */}
-        <div className="absolute top-40 right-20 w-32 h-32 lg:w-48 lg:h-48 bg-gradient-to-br from-accent/40 to-primary/30 rounded-full blur-sm animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-20 right-40 w-24 h-24 lg:w-36 lg:h-36 bg-gradient-to-br from-warning/30 to-accent/20 rounded-full blur-lg animate-pulse" style={{animationDelay: '2s'}}></div>
+        {/* Smaller accent circles - minimal and refined */}
+        <div className="absolute top-40 right-20 w-32 h-32 lg:w-48 lg:h-48 bg-gradient-to-br from-accent/10 to-primary/8 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-20 right-40 w-24 h-24 lg:w-36 lg:h-36 bg-gradient-to-br from-primary/8 to-accent/6 rounded-full blur-3xl"></div>
         
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-5">
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 opacity-[0.02]">
           <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 20% 80%, hsl(var(--primary)) 1px, transparent 1px),
-                             radial-gradient(circle at 80% 20%, hsl(var(--accent)) 1px, transparent 1px),
-                             radial-gradient(circle at 40% 40%, hsl(var(--warning)) 1px, transparent 1px)`,
-            backgroundSize: '50px 50px, 80px 80px, 100px 100px'
+            backgroundImage: `linear-gradient(hsl(var(--border)) 1px, transparent 1px),
+                             linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px)`,
+            backgroundSize: '64px 64px'
           }}></div>
         </div>
       </div>
@@ -80,7 +79,7 @@ const HeroSection = () => {
           <div className="animate-fade-in mb-8" style={{animationDelay: '0.6s'}}>
             <Button 
               size="lg" 
-              className="bg-gradient-warm hover:opacity-90 transition-all duration-300 shadow-xl text-white text-lg px-10 py-4 h-auto hover-scale group rounded-full font-semibold"
+              className="bg-gradient-warm hover:shadow-lg transition-all duration-500 shadow-md text-white text-lg px-10 py-4 h-auto group rounded-full font-semibold transform hover:scale-105"
               onClick={() => {
                 const emailInput = document.getElementById('waitlist-email') as HTMLInputElement;
                 if (emailInput) {
@@ -90,7 +89,7 @@ const HeroSection = () => {
               }}
             >
               GET STARTED
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
           </div>
 
@@ -128,20 +127,20 @@ const HeroSection = () => {
               <div className="flex items-center mb-3">
                 <div className="flex -space-x-2">
                   {communityMembers.slice(0, 4).map((member, index) => (
-                    <Avatar key={index} className="w-12 h-12 border-2 border-background hover-scale">
+                    <Avatar key={index} className="w-12 h-12 border-2 border-background transition-transform duration-300 hover:scale-110">
                       <AvatarImage src={member.avatar} alt={member.name} />
                       <AvatarFallback className="bg-gradient-warm text-white text-sm font-semibold">
                         {member.name.split(' ').map(n => n[0]).join('')}
                       </AvatarFallback>
                     </Avatar>
                   ))}
-                  <div className="w-12 h-12 bg-muted/80 border-2 border-background rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-muted border-2 border-background rounded-full flex items-center justify-center">
                     <span className="text-xs font-semibold text-muted-foreground">+496</span>
                   </div>
                 </div>
                 <div className="ml-4">
                   <div className="flex items-center">
-                    <div className="w-2 h-2 bg-success rounded-full animate-pulse mr-2"></div>
+                    <div className="w-2 h-2 bg-success rounded-full mr-2 animate-pulse" style={{animationDuration: '2s'}}></div>
                     <span className="text-lg font-semibold text-foreground">287 online now</span>
                   </div>
                 </div>
@@ -187,10 +186,10 @@ const HeroSection = () => {
           
           <Button 
             size="lg" 
-            className="bg-gradient-warm hover:opacity-90 transition-all duration-300 shadow-xl text-white text-lg px-10 py-4 h-auto hover-scale group rounded-full font-semibold"
+            className="bg-gradient-warm hover:shadow-lg transition-all duration-500 shadow-md text-white text-lg px-10 py-4 h-auto group rounded-full font-semibold transform hover:scale-105"
           >
             GET STARTED
-            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
           </Button>
         </div>
       </div>

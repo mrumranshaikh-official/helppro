@@ -20,23 +20,23 @@
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 15%;
 
-    /* Primary Brand Colors - Zepcruit-inspired Orange */
-    --primary: 16 100% 50%;
-    --primary-light: 16 100% 65%;
-    --primary-dark: 16 100% 35%;
+    /* Primary Brand Colors - Clean Professional Orange */
+    --primary: 24 95% 53%;
+    --primary-light: 27 96% 61%;
+    --primary-dark: 20 91% 48%;
     --primary-foreground: 0 0% 100%;
 
     /* Secondary Colors - Trust & Reliability */
-    --secondary: 195 100% 95%;
-    --secondary-foreground: 217 78% 35%;
+    --secondary: 210 20% 98%;
+    --secondary-foreground: 215 25% 27%;
 
     /* Muted System */
-    --muted: 210 14% 96%;
-    --muted-foreground: 215 16% 46%;
+    --muted: 210 17% 98%;
+    --muted-foreground: 215 14% 51%;
 
-    /* Accent Colors - Warm Orange Tones */
-    --accent: 28 100% 55%;
-    --accent-light: 28 100% 68%;
+    /* Accent Colors - Refined Warm Tones */
+    --accent: 32 95% 58%;
+    --accent-light: 35 96% 64%;
     --accent-foreground: 0 0% 100%;
 
     /* Status Colors */
@@ -55,13 +55,13 @@
     /* Design System Variables */
     --radius: 0.75rem;
 
-    /* Custom Brand Gradients - Zepcruit-inspired */
-    --gradient-primary: linear-gradient(135deg, hsl(16 100% 50%) 0%, hsl(28 100% 55%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(195 100% 95%) 0%, hsl(0 0% 100%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(16 100% 50%) 0%, hsl(28 100% 55%) 100%);
-    --gradient-warm: linear-gradient(135deg, hsl(16 100% 50%) 0%, hsl(28 100% 55%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 14% 98%) 100%);
-    --gradient-circle: radial-gradient(circle at center, hsl(28 100% 55% / 0.2), hsl(16 100% 50% / 0.1));
+    /* Custom Brand Gradients - Clean & Professional */
+    --gradient-primary: linear-gradient(135deg, hsl(24 95% 53%) 0%, hsl(32 95% 58%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(210 20% 98%) 0%, hsl(0 0% 100%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(24 95% 53%) 0%, hsl(32 95% 58%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(24 95% 53%) 0%, hsl(32 95% 58%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 17% 98%) 100%);
+    --gradient-circle: radial-gradient(circle at center, hsl(32 95% 58% / 0.08), hsl(24 95% 53% / 0.05));
 
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 hsl(215 25% 15% / 0.05);
@@ -86,19 +86,19 @@
     --popover: 215 25% 10%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 16 100% 60%;
-    --primary-light: 16 100% 75%;
-    --primary-dark: 16 100% 45%;
+    --primary: 24 95% 58%;
+    --primary-light: 27 96% 66%;
+    --primary-dark: 20 91% 52%;
     --primary-foreground: 215 25% 8%;
 
-    --secondary: 215 25% 15%;
+    --secondary: 215 25% 16%;
     --secondary-foreground: 0 0% 95%;
 
-    --muted: 215 25% 15%;
-    --muted-foreground: 215 16% 65%;
+    --muted: 215 25% 16%;
+    --muted-foreground: 215 14% 62%;
 
-    --accent: 28 100% 65%;
-    --accent-light: 28 100% 75%;
+    --accent: 32 95% 62%;
+    --accent-light: 35 96% 68%;
     --accent-foreground: 215 25% 8%;
 
     --success: 158 64% 52%;
@@ -112,11 +112,12 @@
     --ring: 217 78% 65%;
 
     /* Update gradients for dark mode */
-    --gradient-primary: linear-gradient(135deg, hsl(16 100% 60%) 0%, hsl(28 100% 65%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(215 25% 15%) 0%, hsl(215 25% 12%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(16 100% 60%) 0%, hsl(28 100% 65%) 100%);
-    --gradient-warm: linear-gradient(135deg, hsl(16 100% 60%) 0%, hsl(28 100% 65%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(24 95% 58%) 0%, hsl(32 95% 62%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(215 25% 16%) 0%, hsl(215 25% 12%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(24 95% 58%) 0%, hsl(32 95% 62%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(24 95% 58%) 0%, hsl(32 95% 62%) 100%);
     --gradient-card: linear-gradient(145deg, hsl(215 25% 12%) 0%, hsl(215 25% 10%) 100%);
+    --gradient-circle: radial-gradient(circle at center, hsl(32 95% 62% / 0.12), hsl(24 95% 58% / 0.08));
   }
 }
 
