@@ -2,11 +2,10 @@ import Navbar from "@/components/ui/navbar";
 import HeroSection from "@/components/hero-section";
 import LiveActivitySection from "@/components/live-activity-section";
 import AdvancedFeaturesSection from "@/components/advanced-features-section";
-import HowItWorks from "@/components/how-it-works";
+import PlatformDetailsSection from "@/components/platform-details-section";
 import GamificationSection from "@/components/gamification-section";
 import HelpSystemSection from "@/components/help-system-section";
 import ValidationSection from "@/components/validation-section";
-import AboutSection from "@/components/about-section";
 import Footer from "@/components/footer";
 
 const Index = () => {
@@ -16,11 +15,10 @@ const Index = () => {
       <HeroSection />
       <LiveActivitySection />
       <AdvancedFeaturesSection />
-      <HowItWorks />
+      <PlatformDetailsSection />
       <GamificationSection />
       <HelpSystemSection />
       <ValidationSection />
-      <AboutSection />
       <Footer />
     </div>
   );
