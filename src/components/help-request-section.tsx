@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
 import {
   Select,
   SelectContent,
@@ -26,6 +27,7 @@ import {
 } from "lucide-react";
 
 const HelpRequestSection = () => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     title: "",
     category: "",
@@ -80,8 +82,31 @@ const HelpRequestSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Add form submission logic here
+    
+    // Validate form fields
+    if (!formData.title || !formData.category || !formData.urgency || !formData.description) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all required fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Show success message
+    toast({
+      title: "Help Request Submitted!",
+      description: "Your request has been posted. You'll be notified when someone responds.",
+    });
+
+    // Reset form
+    setFormData({
+      title: "",
+      category: "",
+      urgency: "",
+      description: "",
+      techStack: "",
+    });
   };
 
   const getUrgencyColor = (urgency: string) => {

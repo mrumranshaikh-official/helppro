@@ -36,32 +36,28 @@ const Footer = () => {
               <Button 
                 variant="ghost" 
                 size="sm" 
-                className="p-2 hover:text-primary"
-                onClick={() => window.open('https://twitter.com/helppro', '_blank')}
+                className="p-2 hover:text-primary cursor-default"
               >
                 <Twitter className="w-5 h-5" />
               </Button>
               <Button 
                 variant="ghost" 
                 size="sm" 
-                className="p-2 hover:text-primary"
-                onClick={() => window.open('https://linkedin.com/company/helppro', '_blank')}
+                className="p-2 hover:text-primary cursor-default"
               >
                 <Linkedin className="w-5 h-5" />
               </Button>
               <Button 
                 variant="ghost" 
                 size="sm" 
-                className="p-2 hover:text-primary"
-                onClick={() => window.open('https://github.com/helppro', '_blank')}
+                className="p-2 hover:text-primary cursor-default"
               >
                 <Github className="w-5 h-5" />
               </Button>
               <Button 
                 variant="ghost" 
                 size="sm" 
-                className="p-2 hover:text-primary"
-                onClick={() => window.open('mailto:hello@helppro.com', '_blank')}
+                className="p-2 hover:text-primary cursor-default"
               >
                 <Mail className="w-5 h-5" />
               </Button>

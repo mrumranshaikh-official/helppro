@@ -5,8 +5,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Users, Shield, TrendingUp, Rocket, Star, Clock, CheckCircle } from "lucide-react";
 import ThemeToggle from "@/components/theme-toggle";
 import ChatSimulation from "@/components/chat-simulation";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+  
   const communityMembers = [
     { name: "Sarah Chen", avatar: "/api/placeholder/40/40", role: "DevOps" },
     { name: "Marcus R.", avatar: "/api/placeholder/40/40", role: "Frontend" },
@@ -76,13 +79,7 @@ const HeroSection = () => {
             <Button 
               size="lg" 
               className="bg-gradient-warm hover:shadow-lg transition-all duration-500 shadow-md text-white text-lg px-10 py-4 h-auto group rounded-full font-semibold transform hover:scale-105"
-              onClick={() => {
-                const emailInput = document.getElementById('waitlist-email') as HTMLInputElement;
-                if (emailInput) {
-                  emailInput.scrollIntoView({ behavior: 'smooth' });
-                  emailInput.focus();
-                }
-              }}
+              onClick={() => navigate('/auth')}
             >
               GET STARTED
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -165,6 +162,7 @@ const HeroSection = () => {
           <Button 
             size="lg" 
             className="bg-gradient-warm hover:shadow-lg transition-all duration-500 shadow-md text-white text-lg px-10 py-4 h-auto group rounded-full font-semibold transform hover:scale-105"
+            onClick={() => navigate('/auth')}
           >
             GET STARTED
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
