@@ -70,10 +70,6 @@ const HeroSection = () => {
             </span>
           </h1>
 
-          {/* Subtitle */}
-          <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-8 animate-fade-in max-w-2xl font-medium" style={{animationDelay: '0.5s'}}>
-            AI-powered Solution to Connect with Verified Professionals Instantly
-          </p>
           
           {/* CTA Button */}
           <div className="animate-fade-in mb-8" style={{animationDelay: '0.6s'}}>
@@ -93,24 +89,6 @@ const HeroSection = () => {
             </Button>
           </div>
 
-          {/* Trust Indicators */}
-          <div className="animate-fade-in" style={{animationDelay: '0.7s'}}>
-            <p className="text-sm text-muted-foreground mb-4 font-medium">Partnerships & Certifications:</p>
-            <div className="flex items-center gap-6 mb-8">
-              <Badge variant="outline" className="text-xs bg-card/80">
-                <Shield className="w-3 h-3 mr-1" />
-                Verified Professionals
-              </Badge>
-              <Badge variant="outline" className="text-xs bg-card/80">
-                <Star className="w-3 h-3 mr-1" />
-                4.9/5 Rating
-              </Badge>
-              <Badge variant="outline" className="text-xs bg-card/80">
-                <CheckCircle className="w-3 h-3 mr-1" />
-                Enterprise Ready
-              </Badge>
-            </div>
-          </div>
         </div>
 
         {/* 2-Column Layout for Desktop - Simplified Zepcruit Style */}

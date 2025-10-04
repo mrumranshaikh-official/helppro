@@ -82,10 +82,6 @@ const FeaturesSection = () => {
               Modern Professionals
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Everything you need to build a reliable professional network that works for you, 
-            not against you. No corporate politics, just pure peer-to-peer support.
-          </p>
         </div>
 
         {/* Primary Features */}
