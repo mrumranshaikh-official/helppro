@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, User, LogOut } from "lucide-react";
+import { Menu, X, ChevronDown, User, LogOut, Users } from "lucide-react";
 import { useState } from "react";
 import ThemeToggle from "@/components/theme-toggle";
 import { useAuth } from "@/contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import CoinsWidget from "@/components/coins-widget";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -46,6 +47,14 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
+              <Button 
+                variant="ghost" 
+                className="text-foreground hover:text-primary transition-colors" 
+                onClick={() => navigate('/community')}
+              >
+                <Users size={18} className="mr-2" />
+                Community
+              </Button>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="text-foreground hover:text-primary transition-colors p-0 h-auto font-normal">
@@ -84,6 +93,7 @@ const Navbar = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
+            {user && <CoinsWidget />}
             <ThemeToggle />
             {!loading && (
               <>
@@ -97,7 +107,7 @@ const Navbar = () => {
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end" className="w-56">
-                      <DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => navigate(`/profile/${user.id}`)}>
                         <User className="mr-2 h-4 w-4" />
                         Profile
                       </DropdownMenuItem>
@@ -140,6 +150,17 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-card/95 backdrop-blur-lg rounded-lg mt-2 border border-border">
+              <Button
+                variant="ghost"
+                className="w-full justify-start"
+                onClick={() => {
+                  navigate('/community');
+                  setIsMenuOpen(false);
+                }}
+              >
+                <Users className="mr-2 h-4 w-4" />
+                Community
+              </Button>
               <a
                 href="#how-it-works"
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
@@ -180,6 +201,17 @@ const Navbar = () => {
                         <div className="px-3 py-2 text-sm text-muted-foreground border-t border-border">
                           Signed in as {user.email?.split('@')[0]}
                         </div>
+                        <Button 
+                          variant="ghost" 
+                          className="w-full justify-start" 
+                          onClick={() => {
+                            navigate(`/profile/${user.id}`);
+                            setIsMenuOpen(false);
+                          }}
+                        >
+                          <User className="mr-2 h-4 w-4" />
+                          Profile
+                        </Button>
                         <Button variant="ghost" className="w-full justify-start" onClick={signOut}>
                           <LogOut className="mr-2 h-4 w-4" />
                           Sign Out
