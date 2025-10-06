@@ -29,9 +29,36 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   useEffect(() => {
     // Set up auth state listener
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
+      async (event, session) => {
         setSession(session);
         setUser(session?.user ?? null);
+        
+        // Handle LinkedIn OAuth profile sync
+        if (event === 'SIGNED_IN' && session?.user) {
+          const metadata = session.user.user_metadata;
+          
+          // Check if profile exists
+          const { data: existingProfile } = await supabase
+            .from('profiles')
+            .select('id')
+            .eq('id', session.user.id)
+            .single();
+          
+          if (!existingProfile) {
+            // Create profile for OAuth users
+            await supabase.from('profiles').insert({
+              id: session.user.id,
+              email: session.user.email || '',
+              full_name: metadata.full_name || metadata.name || '',
+              avatar_url: metadata.avatar_url || metadata.picture || '',
+              linkedin_id: metadata.provider_id || metadata.sub || '',
+              headline: metadata.headline || '',
+              bio: metadata.bio || '',
+              location: metadata.location || ''
+            });
+          }
+        }
+        
         setLoading(false);
       }
     );
