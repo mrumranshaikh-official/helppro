@@ -8,6 +8,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useNavigate } from 'react-router-dom';
 import { Loader2, User, Mail, Lock, UserPlus, LogIn } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { FaLinkedin } from 'react-icons/fa';
 
 const Auth = () => {
   const { signIn, signUp, user, loading } = useAuth();
@@ -78,6 +80,25 @@ const Auth = () => {
     setIsLoading(false);
   };
 
+  const handleLinkedInSignIn = async () => {
+    setIsLoading(true);
+    setError('');
+    
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'linkedin_oidc',
+        options: {
+          redirectTo: `${window.location.origin}/`,
+        },
+      });
+
+      if (error) throw error;
+    } catch (error: any) {
+      setError(error.message || 'Failed to sign in with LinkedIn');
+      setIsLoading(false);
+    }
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -113,6 +134,28 @@ const Auth = () => {
               </TabsList>
               
               <TabsContent value="login" className="space-y-4 mt-6">
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="w-full"
+                  onClick={handleLinkedInSignIn}
+                  disabled={isLoading}
+                >
+                  <FaLinkedin className="mr-2 h-5 w-5 text-[#0077B5]" />
+                  Continue with LinkedIn
+                </Button>
+
+                <div className="relative">
+                  <div className="absolute inset-0 flex items-center">
+                    <span className="w-full border-t" />
+                  </div>
+                  <div className="relative flex justify-center text-xs uppercase">
+                    <span className="bg-card px-2 text-muted-foreground">
+                      Or continue with email
+                    </span>
+                  </div>
+                </div>
+
                 <form onSubmit={handleLogin} className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="login-email" className="text-sm font-medium">Email</Label>
@@ -158,6 +201,28 @@ const Auth = () => {
               </TabsContent>
               
               <TabsContent value="signup" className="space-y-4 mt-6">
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="w-full"
+                  onClick={handleLinkedInSignIn}
+                  disabled={isLoading}
+                >
+                  <FaLinkedin className="mr-2 h-5 w-5 text-[#0077B5]" />
+                  Sign up with LinkedIn
+                </Button>
+
+                <div className="relative">
+                  <div className="absolute inset-0 flex items-center">
+                    <span className="w-full border-t" />
+                  </div>
+                  <div className="relative flex justify-center text-xs uppercase">
+                    <span className="bg-card px-2 text-muted-foreground">
+                      Or sign up with email
+                    </span>
+                  </div>
+                </div>
+
                 <form onSubmit={handleSignup} className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="signup-name" className="text-sm font-medium">Full Name</Label>

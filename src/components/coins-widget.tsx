@@ -5,14 +5,14 @@ import { Coins, Plus, TrendingUp } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-import { useNavigate } from "react-router-dom";
+import BuyCoinsDialog from "./buy-coins-dialog";
 
 const CoinsWidget = () => {
   const { user } = useAuth();
   const { toast } = useToast();
-  const navigate = useNavigate();
   const [balance, setBalance] = useState<number>(0);
   const [loading, setLoading] = useState(true);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -38,15 +38,18 @@ const CoinsWidget = () => {
   };
 
   const handleBuyCoins = () => {
-    toast({
-      title: "Coming Soon",
-      description: "Coin purchase feature will be available soon!",
-    });
+    setDialogOpen(true);
   };
 
   if (!user) return null;
 
   return (
+    <>
+      <BuyCoinsDialog
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        onPurchaseComplete={fetchBalance}
+      />
     <Card className="bg-gradient-to-br from-primary/10 to-accent/10 border-border">
       <CardContent className="p-6">
         <div className="flex items-center justify-between">
@@ -81,6 +84,7 @@ const CoinsWidget = () => {
         </div>
       </CardContent>
     </Card>
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, User, LogOut, Users } from "lucide-react";
+import { Menu, X, ChevronDown, User, LogOut, Users, MessageSquare } from "lucide-react";
 import { useState } from "react";
 import ThemeToggle from "@/components/theme-toggle";
 import { useAuth } from "@/contexts/AuthContext";
@@ -55,6 +55,16 @@ const Navbar = () => {
                 <Users size={18} className="mr-2" />
                 Community
               </Button>
+              {user && (
+                <Button 
+                  variant="ghost" 
+                  className="text-foreground hover:text-primary transition-colors" 
+                  onClick={() => navigate('/messages')}
+                >
+                  <MessageSquare size={18} className="mr-2" />
+                  Messages
+                </Button>
+              )}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="text-foreground hover:text-primary transition-colors p-0 h-auto font-normal">
@@ -161,6 +171,19 @@ const Navbar = () => {
                 <Users className="mr-2 h-4 w-4" />
                 Community
               </Button>
+              {user && (
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start"
+                  onClick={() => {
+                    navigate('/messages');
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  <MessageSquare className="mr-2 h-4 w-4" />
+                  Messages
+                </Button>
+              )}
               <a
                 href="#how-it-works"
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
