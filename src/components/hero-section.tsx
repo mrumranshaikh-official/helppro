@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Users, Shield, TrendingUp, Rocket, Star, Clock, CheckCircle } from "lucide-react";
 import ThemeToggle from "@/components/theme-toggle";
-import ChatSimulation from "@/components/chat-simulation";
+import PeerSupportPopup from "@/components/peer-support-popup";
 import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
@@ -140,9 +140,9 @@ const HeroSection = () => {
               <div className="w-full h-full bg-gradient-circle rounded-full opacity-60"></div>
             </div>
             
-            {/* Chat simulation in front */}
+            {/* Peer Support Popup */}
             <div className="relative z-10">
-              <ChatSimulation />
+              <PeerSupportPopup />
             </div>
           </div>
         </div>
