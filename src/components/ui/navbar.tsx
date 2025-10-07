@@ -83,6 +83,9 @@ const Navbar = () => {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="start" className="w-48 bg-card/95 backdrop-blur-lg border border-border">
+                  <DropdownMenuItem onClick={() => navigate('/')}>
+                    All
+                  </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <a href="#how-it-works" className="w-full cursor-pointer hover:text-primary transition-colors">
                       How it Works
@@ -93,21 +96,16 @@ const Navbar = () => {
                       Features
                     </a>
                   </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <a href="#pricing" className="w-full cursor-pointer hover:text-primary transition-colors">
-                      Pricing
-                    </a>
+                  <DropdownMenuItem onClick={() => navigate('/community')}>
+                    Top Community
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <a href="#roadmap" className="w-full cursor-pointer hover:text-primary transition-colors">
-                      Roadmap
+                    <a href="#about" className="w-full cursor-pointer hover:text-primary transition-colors">
+                      About
                     </a>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-              <a href="#about" className="text-foreground hover:text-primary transition-colors">
-                About
-              </a>
             </div>
           </div>
 
@@ -207,6 +205,16 @@ const Navbar = () => {
                   </Button>
                 </>
               )}
+              <Button
+                variant="ghost"
+                className="w-full justify-start"
+                onClick={() => {
+                  navigate('/');
+                  setIsMenuOpen(false);
+                }}
+              >
+                All
+              </Button>
               <a
                 href="#how-it-works"
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
@@ -221,13 +229,17 @@ const Navbar = () => {
               >
                 Features
               </a>
-              <a
-                href="#community"
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+              <Button
+                variant="ghost"
+                className="w-full justify-start"
+                onClick={() => {
+                  navigate('/community');
+                  setIsMenuOpen(false);
+                }}
               >
+                <TrendingUp className="mr-2 h-4 w-4" />
                 Top Community
-              </a>
+              </Button>
               <a
                 href="#about"
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
