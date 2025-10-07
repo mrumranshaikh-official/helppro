@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, User, LogOut, Users, MessageSquare } from "lucide-react";
+import { Menu, X, ChevronDown, User, LogOut, Users, MessageSquare, Coins, TrendingUp } from "lucide-react";
 import { useState } from "react";
 import ThemeToggle from "@/components/theme-toggle";
 import { useAuth } from "@/contexts/AuthContext";
@@ -56,14 +56,24 @@ const Navbar = () => {
                 Community
               </Button>
               {user && (
-                <Button 
-                  variant="ghost" 
-                  className="text-foreground hover:text-primary transition-colors" 
-                  onClick={() => navigate('/messages')}
-                >
-                  <MessageSquare size={18} className="mr-2" />
-                  Messages
-                </Button>
+                <>
+                  <Button 
+                    variant="ghost" 
+                    className="text-foreground hover:text-primary transition-colors" 
+                    onClick={() => navigate('/messages')}
+                  >
+                    <MessageSquare size={18} className="mr-2" />
+                    Messages
+                  </Button>
+                  <Button 
+                    variant="ghost" 
+                    className="text-foreground hover:text-primary transition-colors" 
+                    onClick={() => navigate('/coins')}
+                  >
+                    <Coins size={18} className="mr-2" />
+                    HT Coins
+                  </Button>
+                </>
               )}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -172,17 +182,30 @@ const Navbar = () => {
                 Community
               </Button>
               {user && (
-                <Button
-                  variant="ghost"
-                  className="w-full justify-start"
-                  onClick={() => {
-                    navigate('/messages');
-                    setIsMenuOpen(false);
-                  }}
-                >
-                  <MessageSquare className="mr-2 h-4 w-4" />
-                  Messages
-                </Button>
+                <>
+                  <Button
+                    variant="ghost"
+                    className="w-full justify-start"
+                    onClick={() => {
+                      navigate('/messages');
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    <MessageSquare className="mr-2 h-4 w-4" />
+                    Messages
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    className="w-full justify-start"
+                    onClick={() => {
+                      navigate('/coins');
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    <Coins className="mr-2 h-4 w-4" />
+                    HT Coins
+                  </Button>
+                </>
               )}
               <a
                 href="#how-it-works"
@@ -203,7 +226,7 @@ const Navbar = () => {
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Community
+                Top Community
               </a>
               <a
                 href="#about"
