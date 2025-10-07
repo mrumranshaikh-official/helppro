@@ -58,7 +58,7 @@ const HeroSection = () => {
 
         {/* Hero Content - Zepcruit-inspired Layout */}
         <div className="text-left pt-20 sm:pt-24 pb-12 animate-fade-in max-w-4xl">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.9] mb-8 tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] mb-8 tracking-tight">
             <span className="block animate-fade-in" style={{animationDelay: '0.1s'}}>
               <span className="text-foreground">Get Instant</span>
             </span>
@@ -66,10 +66,7 @@ const HeroSection = () => {
               <span className="bg-gradient-warm bg-clip-text text-transparent">Peer Support</span>
             </span>
             <span className="block animate-fade-in text-foreground" style={{animationDelay: '0.3s'}}>
-              & Professional Help
-            </span>
-            <span className="block animate-fade-in text-muted-foreground text-4xl sm:text-5xl md:text-6xl lg:text-7xl" style={{animationDelay: '0.4s'}}>
-              in a Flash
+              For Your Professional Challenges
             </span>
           </h1>
 

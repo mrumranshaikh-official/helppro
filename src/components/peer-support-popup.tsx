@@ -5,12 +5,7 @@ import { Clock, CheckCircle2 } from "lucide-react";
 const PeerSupportPopup = () => {
   return (
     <Card className="w-full max-w-2xl mx-auto shadow-2xl border-2 bg-card/95 backdrop-blur-sm animate-fade-in">
-      <CardHeader className="pb-4">
-        <CardTitle className="text-2xl md:text-3xl font-bold text-center bg-gradient-warm bg-clip-text text-transparent">
-          Get Instant Peer Support For Your Professional Challenges
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-6">
+      <CardContent className="space-y-6 pt-6">
         {/* Task Shared */}
         <div className="bg-muted/50 rounded-lg p-5 border border-border/50 space-y-3">
           <div className="flex items-start gap-3">
