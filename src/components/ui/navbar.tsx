@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, User, LogOut, Users, MessageSquare, Coins, TrendingUp } from "lucide-react";
+import { Menu, X, ChevronDown, User, LogOut, Users, MessageSquare, Coins, TrendingUp, CircleHelp } from "lucide-react";
 import { useState } from "react";
 import ThemeToggle from "@/components/theme-toggle";
 import { useAuth } from "@/contexts/AuthContext";
@@ -57,6 +57,14 @@ const Navbar = () => {
               </Button>
               {user && (
                 <>
+                  <Button 
+                    variant="ghost" 
+                    className="text-foreground hover:text-primary transition-colors" 
+                    onClick={() => navigate('/help-requests')}
+                  >
+                    <CircleHelp size={18} className="mr-2" />
+                    Help Requests
+                  </Button>
                   <Button 
                     variant="ghost" 
                     className="text-foreground hover:text-primary transition-colors" 
@@ -181,6 +189,17 @@ const Navbar = () => {
               </Button>
               {user && (
                 <>
+                  <Button
+                    variant="ghost"
+                    className="w-full justify-start"
+                    onClick={() => {
+                      navigate('/help-requests');
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    <CircleHelp className="mr-2 h-4 w-4" />
+                    Help Requests
+                  </Button>
                   <Button
                     variant="ghost"
                     className="w-full justify-start"
