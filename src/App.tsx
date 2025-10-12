@@ -7,6 +7,7 @@ import { ThemeProvider } from "next-themes";
 import { AuthProvider } from "@/contexts/AuthContext";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
+import Dashboard from "./pages/Dashboard";
 import Community from "./pages/Community";
 import HelpRequests from "./pages/HelpRequests";
 import Profile from "./pages/Profile";
@@ -32,6 +33,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/auth" element={<Auth />} />
+              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/community" element={<Community />} />
               <Route path="/help-requests" element={<HelpRequests />} />
               <Route path="/profile/:id" element={<Profile />} />
