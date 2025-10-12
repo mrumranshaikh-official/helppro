@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, User, LogOut, Users, MessageSquare, Coins, TrendingUp, CircleHelp } from "lucide-react";
+import { Menu, X, ChevronDown, User, LogOut, Users, MessageSquare, Coins, TrendingUp, CircleHelp, LayoutDashboard } from "lucide-react";
 import { useState } from "react";
 import ThemeToggle from "@/components/theme-toggle";
 import { useAuth } from "@/contexts/AuthContext";
@@ -47,6 +47,16 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
+              {user && (
+                <Button 
+                  variant="ghost" 
+                  className="text-foreground hover:text-primary transition-colors" 
+                  onClick={() => navigate('/dashboard')}
+                >
+                  <LayoutDashboard size={18} className="mr-2" />
+                  Dashboard
+                </Button>
+              )}
               <Button 
                 variant="ghost" 
                 className="text-foreground hover:text-primary transition-colors" 
@@ -176,6 +186,19 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-card/95 backdrop-blur-lg rounded-lg mt-2 border border-border">
+              {user && (
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start"
+                  onClick={() => {
+                    navigate('/dashboard');
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  <LayoutDashboard className="mr-2 h-4 w-4" />
+                  Dashboard
+                </Button>
+              )}
               <Button
                 variant="ghost"
                 className="w-full justify-start"
