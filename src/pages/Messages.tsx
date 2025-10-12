@@ -8,6 +8,16 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { 
   Send, 
   Paperclip, 
@@ -16,11 +26,14 @@ import {
   MoreVertical,
   ArrowLeft,
   Archive,
-  CheckCheck
+  CheckCheck,
+  CheckCircle,
+  Coins
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/ui/navbar";
+import { toast as sonnerToast } from "sonner";
 
 interface HelpRequest {
   id: string;
@@ -28,6 +41,7 @@ interface HelpRequest {
   status: string;
   requester_id: string;
   helper_id: string | null;
+  coin_reward: number | null;
   profiles?: {
     full_name: string;
     avatar_url: string | null;
@@ -53,6 +67,8 @@ const Messages = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [newMessage, setNewMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showCompleteDialog, setShowCompleteDialog] = useState(false);
+  const [completing, setCompleting] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -84,7 +100,8 @@ const Messages = () => {
           title,
           status,
           requester_id,
-          helper_id
+          helper_id,
+          coin_reward
         `)
         .or(`requester_id.eq.${user?.id},helper_id.eq.${user?.id}`)
         .in('status', ['in_progress', 'completed'])
@@ -212,6 +229,96 @@ const Messages = () => {
     }
   };
 
+  const handleCompleteRequest = async () => {
+    if (!selectedConversation || !user) return;
+
+    setCompleting(true);
+    try {
+      const helperId = selectedConversation.helper_id;
+      const coinReward = selectedConversation.coin_reward || 0;
+
+      // Update help request to completed
+      const { error: updateError } = await supabase
+        .from('help_requests')
+        .update({
+          status: 'completed',
+          completed_at: new Date().toISOString()
+        })
+        .eq('id', selectedConversation.id);
+
+      if (updateError) throw updateError;
+
+      if (helperId && coinReward > 0) {
+        // Award coins to helper
+        const { data: helperCoins, error: coinsError } = await supabase
+          .from('user_coins')
+          .select('balance, total_earned')
+          .eq('user_id', helperId)
+          .single();
+
+        if (coinsError) throw coinsError;
+
+        const { error: updateCoinsError } = await supabase
+          .from('user_coins')
+          .update({
+            balance: (helperCoins?.balance || 0) + coinReward,
+            total_earned: (helperCoins?.total_earned || 0) + coinReward
+          })
+          .eq('user_id', helperId);
+
+        if (updateCoinsError) throw updateCoinsError;
+
+        // Create transaction record for helper
+        const { error: transactionError } = await supabase
+          .from('coin_transactions')
+          .insert({
+            user_id: helperId,
+            amount: coinReward,
+            transaction_type: 'help_completed',
+            description: `Completed help request: ${selectedConversation.title}`,
+            help_request_id: selectedConversation.id
+          });
+
+        if (transactionError) throw transactionError;
+      }
+
+      if (helperId) {
+        // Award 10 points to helper
+        const { data: helperProfile, error: profileError } = await supabase
+          .from('profiles')
+          .select('points, full_name')
+          .eq('id', helperId)
+          .single();
+
+        if (profileError) throw profileError;
+
+        const { error: updatePointsError } = await supabase
+          .from('profiles')
+          .update({
+            points: (helperProfile?.points || 0) + 10
+          })
+          .eq('id', helperId);
+
+        if (updatePointsError) throw updatePointsError;
+
+        sonnerToast.success(
+          `Request completed! ${helperProfile?.full_name || 'Helper'} has been awarded ${coinReward} coins and 10 points`
+        );
+      } else {
+        sonnerToast.success('Request marked as completed');
+      }
+
+      setShowCompleteDialog(false);
+      setSelectedConversation(null);
+      fetchConversations();
+    } catch (error) {
+      console.error('Error completing request:', error);
+      sonnerToast.error('Failed to complete request');
+    } finally {
+      setCompleting(false);
+    }
+  };
+
   if (!user) {
     navigate('/auth');
     return null;
@@ -300,6 +407,18 @@ const Messages = () => {
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
+                    {selectedConversation.status === 'in_progress' && 
+                     selectedConversation.requester_id === user?.id && (
+                      <Button
+                        variant="default"
+                        size="sm"
+                        onClick={() => setShowCompleteDialog(true)}
+                        className="bg-green-600 hover:bg-green-700 text-white"
+                      >
+                        <CheckCircle className="w-4 h-4 mr-2" />
+                        Mark as Complete
+                      </Button>
+                    )}
                     <Button variant="ghost" size="icon" disabled>
                       <Phone className="w-5 h-5" />
                     </Button>
@@ -395,6 +514,42 @@ const Messages = () => {
           </Card>
         </div>
       </main>
+
+      {/* Complete Request Dialog */}
+      <AlertDialog open={showCompleteDialog} onOpenChange={setShowCompleteDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Mark this help request as complete?</AlertDialogTitle>
+            <AlertDialogDescription>
+              {selectedConversation?.coin_reward && selectedConversation.coin_reward > 0 ? (
+                <div className="space-y-2">
+                  <p>This will award the following to {selectedConversation.profiles?.full_name}:</p>
+                  <div className="flex items-center gap-2 p-3 bg-muted rounded-lg">
+                    <Coins className="w-5 h-5 text-primary" />
+                    <span className="font-bold">{selectedConversation.coin_reward} coins</span>
+                  </div>
+                  <div className="flex items-center gap-2 p-3 bg-muted rounded-lg">
+                    <CheckCircle className="w-5 h-5 text-green-600" />
+                    <span className="font-bold">10 points</span>
+                  </div>
+                </div>
+              ) : (
+                <p>This will award 10 points to {selectedConversation?.profiles?.full_name} for helping you.</p>
+              )}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={completing}>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleCompleteRequest}
+              disabled={completing}
+              className="bg-green-600 hover:bg-green-700"
+            >
+              {completing ? 'Completing...' : 'Complete & Award'}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };
