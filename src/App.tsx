@@ -8,6 +8,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Community from "./pages/Community";
+import HelpRequests from "./pages/HelpRequests";
 import Profile from "./pages/Profile";
 import Messages from "./pages/Messages";
 import Coins from "./pages/Coins";
@@ -32,6 +33,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/auth" element={<Auth />} />
               <Route path="/community" element={<Community />} />
+              <Route path="/help-requests" element={<HelpRequests />} />
               <Route path="/profile/:id" element={<Profile />} />
               <Route path="/messages" element={<Messages />} />
               <Route path="/coins" element={<Coins />} />
