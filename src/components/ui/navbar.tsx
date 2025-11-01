@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, User, LogOut, Users, MessageSquare, Coins, TrendingUp, CircleHelp, LayoutDashboard } from "lucide-react";
+import { Menu, X, ChevronDown, User, LogOut, Users, MessageSquare, Coins, TrendingUp, CircleHelp, LayoutDashboard, PlusCircle } from "lucide-react";
 import { useState } from "react";
 import ThemeToggle from "@/components/theme-toggle";
 import { useAuth } from "@/contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import CoinsWidget from "@/components/coins-widget";
+import CreateRequestDialog from "@/components/create-request-dialog";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,6 +16,7 @@ import {
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
   const { user, signOut, loading } = useAuth();
   const navigate = useNavigate();
 
@@ -70,6 +72,14 @@ const Navbar = () => {
                   <Button 
                     variant="ghost" 
                     className="text-foreground hover:text-primary transition-colors" 
+                    onClick={() => setIsCreateDialogOpen(true)}
+                  >
+                    <PlusCircle size={18} className="mr-2" />
+                    Request Help
+                  </Button>
+                  <Button 
+                    variant="ghost" 
+                    className="text-foreground hover:text-primary transition-colors" 
                     onClick={() => navigate('/help-requests')}
                   >
                     <CircleHelp size={18} className="mr-2" />
@@ -89,7 +99,7 @@ const Navbar = () => {
                     onClick={() => navigate('/coins')}
                   >
                     <Coins size={18} className="mr-2" />
-                    HT Coins
+                    HP Coins
                   </Button>
                 </>
               )}
@@ -218,6 +228,17 @@ const Navbar = () => {
                     <Coins className="mr-2 h-4 w-4" />
                     HP Coins
                   </Button>
+                  <Button
+                    variant="default"
+                    className="w-full justify-start bg-gradient-primary"
+                    onClick={() => {
+                      setIsCreateDialogOpen(true);
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    <PlusCircle className="mr-2 h-4 w-4" />
+                    Request Help
+                  </Button>
                 </>
               )}
               {!user && (
@@ -295,6 +316,15 @@ const Navbar = () => {
           </div>
         )}
       </div>
+      
+      <CreateRequestDialog 
+        open={isCreateDialogOpen} 
+        onOpenChange={setIsCreateDialogOpen}
+        onSuccess={() => {
+          setIsCreateDialogOpen(false);
+          navigate('/help-requests');
+        }}
+      />
     </nav>
   );
 };
