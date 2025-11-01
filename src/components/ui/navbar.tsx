@@ -194,66 +194,59 @@ const Navbar = () => {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-card/95 backdrop-blur-lg rounded-lg mt-2 border border-border">
               {user && (
-                <>
-                  <Button
-                    variant="ghost"
-                    className="w-full justify-start"
-                    onClick={() => {
-                      navigate(`/profile/${user.id}`);
-                      setIsMenuOpen(false);
-                    }}
-                  >
-                    <User className="mr-2 h-4 w-4" />
-                    User Profile
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    className="w-full justify-start"
-                    onClick={() => {
-                      navigate('/community');
-                      setIsMenuOpen(false);
-                    }}
-                  >
-                    <Users className="mr-2 h-4 w-4" />
-                    Community
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    className="w-full justify-start"
-                    onClick={() => {
-                      navigate('/coins');
-                      setIsMenuOpen(false);
-                    }}
-                  >
-                    <Coins className="mr-2 h-4 w-4" />
-                    HP Coins
-                  </Button>
-                  <Button
-                    variant="default"
-                    className="w-full justify-start bg-gradient-primary"
-                    onClick={() => {
-                      setIsCreateDialogOpen(true);
-                      setIsMenuOpen(false);
-                    }}
-                  >
-                    <PlusCircle className="mr-2 h-4 w-4" />
-                    Request Help
-                  </Button>
-                </>
-              )}
-              {!user && (
                 <Button
                   variant="ghost"
                   className="w-full justify-start"
                   onClick={() => {
-                    navigate('/community');
+                    navigate(`/profile/${user.id}`);
                     setIsMenuOpen(false);
                   }}
                 >
-                  <Users className="mr-2 h-4 w-4" />
-                  Community
+                  <User className="mr-2 h-4 w-4" />
+                  User Profile
                 </Button>
               )}
+              <Button
+                variant="ghost"
+                className="w-full justify-start"
+                onClick={() => {
+                  navigate('/community');
+                  setIsMenuOpen(false);
+                }}
+              >
+                <Users className="mr-2 h-4 w-4" />
+                Community
+              </Button>
+              <Button
+                variant="ghost"
+                className="w-full justify-start"
+                onClick={() => {
+                  if (!user) {
+                    navigate('/auth');
+                  } else {
+                    navigate('/coins');
+                  }
+                  setIsMenuOpen(false);
+                }}
+              >
+                <Coins className="mr-2 h-4 w-4" />
+                HP Coins
+              </Button>
+              <Button
+                variant="default"
+                className="w-full justify-start bg-gradient-primary"
+                onClick={() => {
+                  if (!user) {
+                    navigate('/auth');
+                  } else {
+                    setIsCreateDialogOpen(true);
+                  }
+                  setIsMenuOpen(false);
+                }}
+              >
+                <PlusCircle className="mr-2 h-4 w-4" />
+                Request Help
+              </Button>
               <a
                 href="#features"
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
