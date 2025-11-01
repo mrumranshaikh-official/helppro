@@ -146,11 +146,11 @@ const CreateRequestDialog = ({ open, onOpenChange, onSuccess }: CreateRequestDia
           requester_id: user.id,
           title: title.trim(),
           category,
-          urgency,
+          urgency: urgency as any,
           description: description.trim(),
           tech_stack: techStack.length > 0 ? techStack : null,
           coin_reward: coinReward || null,
-          status: 'open'
+          status: 'open' as any
         })
         .select()
         .single();
@@ -159,12 +159,19 @@ const CreateRequestDialog = ({ open, onOpenChange, onSuccess }: CreateRequestDia
 
       // If coin reward is set, deduct from balance and create transaction
       if (coinReward > 0) {
+        // Get current total_spent
+        const { data: currentBalance } = await supabase
+          .from('user_coins')
+          .select('total_spent')
+          .eq('user_id', user.id)
+          .single();
+
         // Update user balance
         const { error: balanceError } = await supabase
           .from('user_coins')
           .update({
             balance: userBalance - coinReward,
-            total_spent: supabase.rpc('increment', { x: coinReward })
+            total_spent: (currentBalance?.total_spent || 0) + coinReward
           })
           .eq('user_id', user.id);
 

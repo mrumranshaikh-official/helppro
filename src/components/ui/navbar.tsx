@@ -101,9 +101,6 @@ const Navbar = () => {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="start" className="w-48 bg-card/95 backdrop-blur-lg border border-border">
-                  <DropdownMenuItem onClick={() => navigate('/')}>
-                    All
-                  </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <a href="#how-it-works" className="w-full cursor-pointer hover:text-primary transition-colors">
                       How it Works
@@ -187,52 +184,28 @@ const Navbar = () => {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-card/95 backdrop-blur-lg rounded-lg mt-2 border border-border">
               {user && (
-                <Button
-                  variant="ghost"
-                  className="w-full justify-start"
-                  onClick={() => {
-                    navigate('/dashboard');
-                    setIsMenuOpen(false);
-                  }}
-                >
-                  <LayoutDashboard className="mr-2 h-4 w-4" />
-                  Dashboard
-                </Button>
-              )}
-              <Button
-                variant="ghost"
-                className="w-full justify-start"
-                onClick={() => {
-                  navigate('/community');
-                  setIsMenuOpen(false);
-                }}
-              >
-                <Users className="mr-2 h-4 w-4" />
-                Community
-              </Button>
-              {user && (
                 <>
                   <Button
                     variant="ghost"
                     className="w-full justify-start"
                     onClick={() => {
-                      navigate('/help-requests');
+                      navigate(`/profile/${user.id}`);
                       setIsMenuOpen(false);
                     }}
                   >
-                    <CircleHelp className="mr-2 h-4 w-4" />
-                    Help Requests
+                    <User className="mr-2 h-4 w-4" />
+                    User Profile
                   </Button>
                   <Button
                     variant="ghost"
                     className="w-full justify-start"
                     onClick={() => {
-                      navigate('/messages');
+                      navigate('/community');
                       setIsMenuOpen(false);
                     }}
                   >
-                    <MessageSquare className="mr-2 h-4 w-4" />
-                    Messages
+                    <Users className="mr-2 h-4 w-4" />
+                    Community
                   </Button>
                   <Button
                     variant="ghost"
@@ -243,27 +216,23 @@ const Navbar = () => {
                     }}
                   >
                     <Coins className="mr-2 h-4 w-4" />
-                    HT Coins
+                    HP Coins
                   </Button>
                 </>
               )}
-              <Button
-                variant="ghost"
-                className="w-full justify-start"
-                onClick={() => {
-                  navigate('/');
-                  setIsMenuOpen(false);
-                }}
-              >
-                All
-              </Button>
-              <a
-                href="#how-it-works"
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                How it Works
-              </a>
+              {!user && (
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start"
+                  onClick={() => {
+                    navigate('/community');
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  <Users className="mr-2 h-4 w-4" />
+                  Community
+                </Button>
+              )}
               <a
                 href="#features"
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
@@ -271,23 +240,12 @@ const Navbar = () => {
               >
                 Features
               </a>
-              <Button
-                variant="ghost"
-                className="w-full justify-start"
-                onClick={() => {
-                  navigate('/community');
-                  setIsMenuOpen(false);
-                }}
-              >
-                <TrendingUp className="mr-2 h-4 w-4" />
-                Top Community
-              </Button>
               <a
-                href="#about"
+                href="#how-it-works"
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                About
+                How it Works
               </a>
               <div className="px-3 py-2 space-y-2">
                 <div className="flex items-center justify-between mb-2">
