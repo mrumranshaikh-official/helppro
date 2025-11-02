@@ -24,6 +24,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
+import { helpRequestSchema } from "@/lib/validation";
 
 interface CreateRequestDialogProps {
   open: boolean;
@@ -99,21 +100,24 @@ const CreateRequestDialog = ({ open, onOpenChange, onSuccess }: CreateRequestDia
   const validateForm = (): boolean => {
     const newErrors: { [key: string]: string } = {};
 
-    if (title.trim().length < 10) {
-      newErrors.title = "Title must be at least 10 characters";
+    // Validate using zod schema
+    const validation = helpRequestSchema.safeParse({
+      title,
+      description,
+      category,
+      urgency,
+      techStack: techStack.length > 0 ? techStack : undefined,
+      coinReward
+    });
+
+    if (!validation.success) {
+      validation.error.errors.forEach((err) => {
+        const field = err.path[0] as string;
+        newErrors[field] = err.message;
+      });
     }
-    if (title.trim().length > 100) {
-      newErrors.title = "Title must be less than 100 characters";
-    }
-    if (!category) {
-      newErrors.category = "Please select a category";
-    }
-    if (description.trim().length < 50) {
-      newErrors.description = "Description must be at least 50 characters";
-    }
-    if (description.trim().length > 1000) {
-      newErrors.description = "Description must be less than 1000 characters";
-    }
+
+    // Additional balance check
     if (coinReward > userBalance) {
       newErrors.coinReward = "Insufficient balance";
     }
@@ -157,38 +161,25 @@ const CreateRequestDialog = ({ open, onOpenChange, onSuccess }: CreateRequestDia
 
       if (requestError) throw requestError;
 
-      // If coin reward is set, deduct from balance and create transaction
+      // If coin reward is offered, deduct from user's balance using secure RPC
       if (coinReward > 0) {
-        // Get current total_spent
-        const { data: currentBalance } = await supabase
-          .from('user_coins')
-          .select('total_spent')
-          .eq('user_id', user.id)
-          .single();
+        const { data: spendResult, error: spendError } = await supabase.rpc('spend_coins_for_request', {
+          p_help_request_id: newRequest.id,
+          p_coin_amount: coinReward
+        });
 
-        // Update user balance
-        const { error: balanceError } = await supabase
-          .from('user_coins')
-          .update({
-            balance: userBalance - coinReward,
-            total_spent: (currentBalance?.total_spent || 0) + coinReward
-          })
-          .eq('user_id', user.id);
-
-        if (balanceError) throw balanceError;
-
-        // Create transaction record
-        const { error: transactionError } = await supabase
-          .from('coin_transactions')
-          .insert({
-            user_id: user.id,
-            amount: -coinReward,
-            transaction_type: 'help_request_posted',
-            description: `Posted help request: ${title.trim()}`,
-            help_request_id: newRequest.id
-          });
-
-        if (transactionError) throw transactionError;
+        if (spendError) throw spendError;
+        
+        const result = spendResult as { success?: boolean; error?: string; required?: number; available?: number };
+        
+        if (result.error) {
+          toast.error(
+            result.error === 'Insufficient coins' 
+              ? `You need ${result.required} coins but only have ${result.available}.`
+              : result.error
+          );
+          return;
+        }
       }
 
       toast.success('Help request posted! Waiting for helpers...');

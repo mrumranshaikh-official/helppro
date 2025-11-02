@@ -402,12 +402,28 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      award_coins_for_help: {
+        Args: { p_help_request_id: string }
+        Returns: Json
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
           _user_id: string
         }
         Returns: boolean
+      }
+      purchase_coins: {
+        Args: {
+          p_amount: number
+          p_payment_reference?: string
+          p_price: number
+        }
+        Returns: Json
+      }
+      spend_coins_for_request: {
+        Args: { p_coin_amount: number; p_help_request_id: string }
+        Returns: Json
       }
     }
     Enums: {

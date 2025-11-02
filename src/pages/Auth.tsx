@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { Loader2, User, Mail, Lock, UserPlus, LogIn } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { FaLinkedin } from 'react-icons/fa';
+import { loginSchema, signupSchema } from '@/lib/validation';
 
 const Auth = () => {
   const { signIn, signUp, user, loading } = useAuth();
@@ -42,7 +43,15 @@ const Auth = () => {
     setIsLoading(true);
     setError('');
 
-    const { error } = await signIn(loginForm.email, loginForm.password);
+    // Validate form data
+    const validation = loginSchema.safeParse(loginForm);
+    if (!validation.success) {
+      setError(validation.error.errors[0].message);
+      setIsLoading(false);
+      return;
+    }
+
+    const { error } = await signIn(validation.data.email, validation.data.password);
     
     if (error) {
       setError(error.message);
@@ -57,19 +66,15 @@ const Auth = () => {
     setError('');
     setSuccess('');
 
-    if (signupForm.password !== signupForm.confirmPassword) {
-      setError('Passwords do not match');
+    // Validate form data
+    const validation = signupSchema.safeParse(signupForm);
+    if (!validation.success) {
+      setError(validation.error.errors[0].message);
       setIsLoading(false);
       return;
     }
 
-    if (signupForm.password.length < 6) {
-      setError('Password must be at least 6 characters');
-      setIsLoading(false);
-      return;
-    }
-
-    const { error } = await signUp(signupForm.email, signupForm.password, signupForm.fullName);
+    const { error } = await signUp(validation.data.email, validation.data.password, validation.data.fullName);
     
     if (error) {
       setError(error.message);

@@ -33,59 +33,53 @@ const BuyCoinsDialog = ({ open, onOpenChange, onPurchaseComplete }: BuyCoinsDial
   const [selectedPackage, setSelectedPackage] = useState<number | null>(null);
 
   const handlePurchase = async (pkg: typeof coinPackages[0]) => {
-    if (!user) return;
-    
+    if (!user) {
+      toast({
+        title: "Authentication Required",
+        description: "Please sign in to purchase coins.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setSelectedPackage(pkg.id);
     setLoading(true);
+
     try {
       const totalCoins = pkg.amount + (pkg.bonus || 0);
       
-      // Get current balance
-      const { data: currentData } = await supabase
-        .from('user_coins')
-        .select('balance, total_earned')
-        .eq('user_id', user.id)
-        .single();
+      // Call secure RPC function to purchase coins
+      const { data, error } = await supabase.rpc('purchase_coins', {
+        p_amount: totalCoins,
+        p_price: pkg.price,
+        p_payment_reference: `DEMO-${Date.now()}` // In production, use real payment processor reference
+      });
 
-      // Update balance
-      const { error: updateError } = await supabase
-        .from('user_coins')
-        .update({
-          balance: (currentData?.balance || 0) + totalCoins,
-          total_earned: (currentData?.total_earned || 0) + totalCoins,
-          updated_at: new Date().toISOString(),
-        })
-        .eq('user_id', user.id);
-
-      if (updateError) throw updateError;
-
-      // Create transaction record
-      const { error: transactionError } = await supabase
-        .from('coin_transactions')
-        .insert({
-          user_id: user.id,
-          amount: totalCoins,
-          transaction_type: 'purchase',
-          description: `Purchased ${pkg.amount} coins${pkg.bonus ? ` (+${pkg.bonus} bonus)` : ''}`,
-        });
-
-      if (transactionError) throw transactionError;
+      if (error) throw error;
+      
+      const result = data as { success?: boolean; error?: string; new_balance?: number };
+      
+      if (result.error) {
+        throw new Error(result.error);
+      }
 
       toast({
         title: "Purchase Successful!",
-        description: `You received ${totalCoins} HelpPro Coins`,
+        description: `You received ${totalCoins} HelpPro Coins. New balance: ${result.new_balance}`,
       });
 
       onPurchaseComplete();
       onOpenChange(false);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Purchase error:', error);
       toast({
         title: "Purchase Failed",
-        description: "There was an error processing your purchase. Please try again.",
+        description: error.message || "There was an error processing your purchase. Please try again.",
         variant: "destructive",
       });
     } finally {
       setLoading(false);
+      setSelectedPackage(null);
     }
   };
 

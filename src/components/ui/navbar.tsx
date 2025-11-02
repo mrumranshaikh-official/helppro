@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, User, LogOut, Users, MessageSquare, Coins, TrendingUp, CircleHelp, LayoutDashboard, PlusCircle } from "lucide-react";
+import { Menu, X, ChevronDown, User, LogOut, Users, Coins, PlusCircle } from "lucide-react";
 import { useState } from "react";
 import ThemeToggle from "@/components/theme-toggle";
 import { useAuth } from "@/contexts/AuthContext";
@@ -20,11 +20,19 @@ const Navbar = () => {
   const { user, signOut, loading } = useAuth();
   const navigate = useNavigate();
 
-  const handleAuthAction = () => {
-    if (user) {
-      signOut();
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
     } else {
-      navigate('/auth');
+      // If not on home page, navigate there first
+      navigate('/');
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+      setIsMenuOpen(false);
     }
   };
 
@@ -36,7 +44,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <button
-                onClick={() => window.open('https://helppro.lovable.app/', '_blank')}
+                onClick={() => navigate('/')}
                 className="cursor-pointer"
               >
                 <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
@@ -48,15 +56,15 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-10 flex items-baseline space-x-6">
               {user && (
                 <Button 
                   variant="ghost" 
                   className="text-foreground hover:text-primary transition-colors" 
-                  onClick={() => navigate('/dashboard')}
+                  onClick={() => navigate(`/profile/${user.id}`)}
                 >
-                  <LayoutDashboard size={18} className="mr-2" />
-                  Dashboard
+                  <User size={18} className="mr-2" />
+                  Profile
                 </Button>
               )}
               <Button 
@@ -68,75 +76,46 @@ const Navbar = () => {
                 Community
               </Button>
               {user && (
-                <>
-                  <Button 
-                    variant="ghost" 
-                    className="text-foreground hover:text-primary transition-colors" 
-                    onClick={() => setIsCreateDialogOpen(true)}
-                  >
-                    <PlusCircle size={18} className="mr-2" />
-                    Request Help
-                  </Button>
-                  <Button 
-                    variant="ghost" 
-                    className="text-foreground hover:text-primary transition-colors" 
-                    onClick={() => navigate('/help-requests')}
-                  >
-                    <CircleHelp size={18} className="mr-2" />
-                    Help Requests
-                  </Button>
-                  <Button 
-                    variant="ghost" 
-                    className="text-foreground hover:text-primary transition-colors" 
-                    onClick={() => navigate('/messages')}
-                  >
-                    <MessageSquare size={18} className="mr-2" />
-                    Messages
-                  </Button>
-                  <Button 
-                    variant="ghost" 
-                    className="text-foreground hover:text-primary transition-colors" 
-                    onClick={() => navigate('/coins')}
-                  >
-                    <Coins size={18} className="mr-2" />
-                    HP Coins
-                  </Button>
-                </>
+                <Button 
+                  variant="ghost" 
+                  className="text-foreground hover:text-primary transition-colors" 
+                  onClick={() => navigate('/coins')}
+                >
+                  <Coins size={18} className="mr-2" />
+                  HP Coins
+                </Button>
               )}
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="text-foreground hover:text-primary transition-colors p-0 h-auto font-normal">
-                    <Menu size={20} className="mr-2" />
-                    <ChevronDown size={16} />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" className="w-48 bg-card/95 backdrop-blur-lg border border-border">
-                  <DropdownMenuItem asChild>
-                    <a href="#how-it-works" className="w-full cursor-pointer hover:text-primary transition-colors">
-                      How it Works
-                    </a>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <a href="#features" className="w-full cursor-pointer hover:text-primary transition-colors">
-                      Features
-                    </a>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => navigate('/community')}>
-                    Top Community
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <a href="#about" className="w-full cursor-pointer hover:text-primary transition-colors">
-                      About
-                    </a>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              <Button 
+                variant="ghost" 
+                className="text-foreground hover:text-primary transition-colors" 
+                onClick={() => scrollToSection('features')}
+              >
+                Features
+              </Button>
+              <Button 
+                variant="ghost" 
+                className="text-foreground hover:text-primary transition-colors" 
+                onClick={() => scrollToSection('how-it-works')}
+              >
+                How HP Works
+              </Button>
             </div>
           </div>
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            {user && <CoinsWidget />}
+            {user && (
+              <>
+                <CoinsWidget />
+                <Button 
+                  className="bg-gradient-primary hover:opacity-90 transition-opacity"
+                  onClick={() => setIsCreateDialogOpen(true)}
+                >
+                  <PlusCircle size={18} className="mr-2" />
+                  Request Help
+                </Button>
+              </>
+            )}
             <ThemeToggle />
             {!loading && (
               <>
@@ -152,7 +131,13 @@ const Navbar = () => {
                     <DropdownMenuContent align="end" className="w-56">
                       <DropdownMenuItem onClick={() => navigate(`/profile/${user.id}`)}>
                         <User className="mr-2 h-4 w-4" />
-                        Profile
+                        My Profile
+                      </DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => navigate('/help-requests')}>
+                        Help Requests
+                      </DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => navigate('/messages')}>
+                        Messages
                       </DropdownMenuItem>
                       <DropdownMenuSeparator />
                       <DropdownMenuItem onClick={signOut}>
@@ -170,7 +155,7 @@ const Navbar = () => {
                       className="bg-gradient-primary hover:opacity-90 transition-opacity"
                       onClick={() => navigate('/auth')}
                     >
-                      Get Started
+                      Sign Up
                     </Button>
                   </>
                 )}
@@ -179,7 +164,8 @@ const Navbar = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-foreground hover:text-primary transition-colors"
@@ -203,7 +189,7 @@ const Navbar = () => {
                   }}
                 >
                   <User className="mr-2 h-4 w-4" />
-                  User Profile
+                  Profile
                 </Button>
               )}
               <Button
@@ -233,78 +219,91 @@ const Navbar = () => {
                 HP Coins
               </Button>
               <Button
-                variant="default"
-                className="w-full justify-start bg-gradient-primary"
-                onClick={() => {
-                  if (!user) {
-                    navigate('/auth');
-                  } else {
-                    setIsCreateDialogOpen(true);
-                  }
-                  setIsMenuOpen(false);
-                }}
-              >
-                <PlusCircle className="mr-2 h-4 w-4" />
-                Request Help
-              </Button>
-              <a
-                href="#features"
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                variant="ghost"
+                className="w-full justify-start"
+                onClick={() => scrollToSection('features')}
               >
                 Features
-              </a>
-              <a
-                href="#how-it-works"
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+              </Button>
+              <Button
+                variant="ghost"
+                className="w-full justify-start"
+                onClick={() => scrollToSection('how-it-works')}
               >
-                How it Works
-              </a>
-              <div className="px-3 py-2 space-y-2">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-muted-foreground">Theme</span>
-                  <ThemeToggle />
-                </div>
-                {!loading && (
-                  <>
-                    {user ? (
-                      <>
-                        <div className="px-3 py-2 text-sm text-muted-foreground border-t border-border">
-                          Signed in as {user.email?.split('@')[0]}
-                        </div>
-                        <Button 
-                          variant="ghost" 
-                          className="w-full justify-start" 
-                          onClick={() => {
-                            navigate(`/profile/${user.id}`);
-                            setIsMenuOpen(false);
-                          }}
-                        >
-                          <User className="mr-2 h-4 w-4" />
-                          Profile
-                        </Button>
-                        <Button variant="ghost" className="w-full justify-start" onClick={signOut}>
-                          <LogOut className="mr-2 h-4 w-4" />
-                          Sign Out
-                        </Button>
-                      </>
-                    ) : (
-                      <>
-                        <Button variant="ghost" className="w-full justify-start" onClick={() => navigate('/auth')}>
-                          Sign In
-                        </Button>
-                        <Button 
-                          className="w-full bg-gradient-primary hover:opacity-90 transition-opacity"
-                          onClick={() => navigate('/auth')}
-                        >
-                          Get Started
-                        </Button>
-                      </>
-                    )}
-                  </>
-                )}
-              </div>
+                How HP Works
+              </Button>
+
+              {user && (
+                <>
+                  <div className="border-t border-border my-2" />
+                  <Button
+                    variant="default"
+                    className="w-full justify-start bg-gradient-primary"
+                    onClick={() => {
+                      setIsCreateDialogOpen(true);
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    <PlusCircle className="mr-2 h-4 w-4" />
+                    Request Help
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    className="w-full justify-start"
+                    onClick={() => {
+                      navigate('/help-requests');
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    Help Requests
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    className="w-full justify-start"
+                    onClick={() => {
+                      navigate('/messages');
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    Messages
+                  </Button>
+                </>
+              )}
+
+              <div className="border-t border-border my-2" />
+              {!loading && (
+                <>
+                  {user ? (
+                    <>
+                      <div className="px-3 py-2 text-sm text-muted-foreground">
+                        Signed in as {user.email?.split('@')[0]}
+                      </div>
+                      <Button variant="ghost" className="w-full justify-start" onClick={signOut}>
+                        <LogOut className="mr-2 h-4 w-4" />
+                        Sign Out
+                      </Button>
+                    </>
+                  ) : (
+                    <>
+                      <Button variant="ghost" className="w-full justify-start" onClick={() => {
+                        navigate('/auth');
+                        setIsMenuOpen(false);
+                      }}>
+                        Sign In
+                      </Button>
+                      <Button 
+                        className="w-full bg-gradient-primary hover:opacity-90 transition-opacity"
+                        onClick={() => {
+                          navigate('/auth');
+                          setIsMenuOpen(false);
+                        }}
+                      >
+                        Sign Up
+                      </Button>
+                    </>
+                  )}
+                </>
+              )}
             </div>
           </div>
         )}
