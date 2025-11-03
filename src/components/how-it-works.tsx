@@ -8,10 +8,6 @@ import {
   ArrowRight,
   Shield
 } from "lucide-react";
-import stepPostRequest from "@/assets/step-post-request.svg";
-import stepGetMatched from "@/assets/step-get-matched.svg";
-import stepCollaborate from "@/assets/step-collaborate.svg";
-import stepEarnCoins from "@/assets/step-earn-coins.svg";
 
 const HowItWorks = () => {
   const steps = [
@@ -20,32 +16,28 @@ const HowItWorks = () => {
       title: "Join & Get Verified",
       description: "Sign up with your LinkedIn profile and complete our skills verification process. We ensure every member is a qualified IT professional.",
       badge: "Verification",
-      color: "text-primary",
-      illustration: stepPostRequest
+      color: "text-primary"
     },
     {
       icon: HandHeart,
       title: "Help Others & Earn Points",
       description: "Use your spare time to help fellow professionals with real tasks. Every hour of help earns you points in our transparent system.",
       badge: "Earn",
-      color: "text-accent",
-      illustration: stepGetMatched
+      color: "text-accent"
     },
     {
       icon: Coins,
       title: "Spend Points When You Need Help",
       description: "When you need assistance, spend your earned points to get help from the community. Fair exchange, no corporate politics.",
       badge: "Spend",
-      color: "text-warning",
-      illustration: stepCollaborate
+      color: "text-warning"
     },
     {
       icon: CheckCircle,
       title: "Maintain Balance & Credibility", 
       description: "The system ensures fairness through mandatory payback and credibility tracking. Generosity becomes a valued part of professional life.",
       badge: "Balance",
-      color: "text-success",
-      illustration: stepEarnCoins
+      color: "text-success"
     }
   ];
 
@@ -80,18 +72,9 @@ const HowItWorks = () => {
                     </div>
                   </div>
 
-                  {/* Illustration */}
-                  <div className="w-full h-32 mb-4 mt-2 flex items-center justify-center">
-                    <img 
-                      src={step.illustration} 
-                      alt={step.title}
-                      className="w-24 h-24 object-contain opacity-90"
-                    />
-                  </div>
-
                   {/* Icon */}
-                  <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary/50 ${step.color} mb-4`}>
-                    <step.icon className="w-6 h-6" />
+                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary/50 ${step.color} mb-6 mt-4`}>
+                    <step.icon className="w-8 h-8" />
                   </div>
 
                   {/* Badge */}

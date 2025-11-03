@@ -6,7 +6,6 @@ import { ArrowRight, Users, Shield, TrendingUp, Rocket, Star, Clock, CheckCircle
 import ThemeToggle from "@/components/theme-toggle";
 import PeerSupportPopup from "@/components/peer-support-popup";
 import { useNavigate } from "react-router-dom";
-import heroCollaboration from "@/assets/hero-collaboration.svg";
 
 const HeroSection = () => {
   const navigate = useNavigate();
@@ -27,17 +26,8 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-muted/30 to-accent/5">
-      {/* Refined Circular Graphics with Illustration */}
+      {/* Refined Circular Graphics */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Hero Illustration Background */}
-        <div className="absolute top-1/2 right-0 lg:right-10 w-full lg:w-[800px] h-auto transform -translate-y-1/2 opacity-30 lg:opacity-20">
-          <img 
-            src={heroCollaboration} 
-            alt="IT professionals collaborating" 
-            className="w-full h-auto object-contain"
-          />
-        </div>
-        
         {/* Main hero circle - subtle and clean */}
         <div className="absolute top-10 right-10 w-96 h-96 lg:w-[600px] lg:h-[600px] bg-gradient-warm rounded-full opacity-20 transition-opacity duration-1000"></div>
         
