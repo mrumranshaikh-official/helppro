@@ -54,50 +54,36 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - 5 Clean Tabs */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-6">
-              {user && (
-                <Button 
-                  variant="ghost" 
-                  className="text-foreground hover:text-primary transition-colors" 
-                  onClick={() => navigate(`/profile/${user.id}`)}
-                >
-                  <User size={18} className="mr-2" />
-                  Profile
-                </Button>
-              )}
               <Button 
                 variant="ghost" 
-                className="text-foreground hover:text-primary transition-colors" 
+                className="text-foreground hover:text-primary transition-colors font-medium" 
+                onClick={() => navigate('/')}
+              >
+                Home
+              </Button>
+              <Button 
+                variant="ghost" 
+                className="text-foreground hover:text-primary transition-colors font-medium" 
+                onClick={() => navigate('/find-experts')}
+              >
+                Find Experts
+              </Button>
+              <Button 
+                variant="ghost" 
+                className="text-foreground hover:text-primary transition-colors font-medium" 
                 onClick={() => navigate('/community')}
               >
-                <Users size={18} className="mr-2" />
                 Community
               </Button>
-              {user && (
-                <Button 
-                  variant="ghost" 
-                  className="text-foreground hover:text-primary transition-colors" 
-                  onClick={() => navigate('/coins')}
-                >
-                  <Coins size={18} className="mr-2" />
-                  HP Coins
-                </Button>
-              )}
               <Button 
                 variant="ghost" 
-                className="text-foreground hover:text-primary transition-colors" 
-                onClick={() => scrollToSection('features')}
+                className="text-foreground hover:text-primary transition-colors font-medium" 
+                onClick={() => navigate('/coins')}
               >
-                Features
-              </Button>
-              <Button 
-                variant="ghost" 
-                className="text-foreground hover:text-primary transition-colors" 
-                onClick={() => scrollToSection('how-it-works')}
-              >
-                How HP Works
+                HP Coins
               </Button>
             </div>
           </div>
@@ -175,62 +161,49 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - 5 Clean Tabs */}
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-card/95 backdrop-blur-lg rounded-lg mt-2 border border-border">
-              {user && (
-                <Button
-                  variant="ghost"
-                  className="w-full justify-start"
-                  onClick={() => {
-                    navigate(`/profile/${user.id}`);
-                    setIsMenuOpen(false);
-                  }}
-                >
-                  <User className="mr-2 h-4 w-4" />
-                  Profile
-                </Button>
-              )}
               <Button
                 variant="ghost"
-                className="w-full justify-start"
+                className="w-full justify-start font-medium"
+                onClick={() => {
+                  navigate('/');
+                  setIsMenuOpen(false);
+                }}
+              >
+                Home
+              </Button>
+              <Button
+                variant="ghost"
+                className="w-full justify-start font-medium"
+                onClick={() => {
+                  navigate('/find-experts');
+                  setIsMenuOpen(false);
+                }}
+              >
+                Find Experts
+              </Button>
+              <Button
+                variant="ghost"
+                className="w-full justify-start font-medium"
                 onClick={() => {
                   navigate('/community');
                   setIsMenuOpen(false);
                 }}
               >
-                <Users className="mr-2 h-4 w-4" />
                 Community
               </Button>
               <Button
                 variant="ghost"
-                className="w-full justify-start"
+                className="w-full justify-start font-medium"
                 onClick={() => {
-                  if (!user) {
-                    navigate('/auth');
-                  } else {
-                    navigate('/coins');
-                  }
+                  navigate('/coins');
                   setIsMenuOpen(false);
                 }}
               >
-                <Coins className="mr-2 h-4 w-4" />
                 HP Coins
-              </Button>
-              <Button
-                variant="ghost"
-                className="w-full justify-start"
-                onClick={() => scrollToSection('features')}
-              >
-                Features
-              </Button>
-              <Button
-                variant="ghost"
-                className="w-full justify-start"
-                onClick={() => scrollToSection('how-it-works')}
-              >
-                How HP Works
               </Button>
 
               {user && (

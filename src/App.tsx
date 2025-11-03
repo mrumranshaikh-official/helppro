@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
 import Community from "./pages/Community";
+import FindExperts from "./pages/FindExperts";
 import HelpRequests from "./pages/HelpRequests";
 import Profile from "./pages/Profile";
 import Messages from "./pages/Messages";
@@ -34,6 +35,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/auth" element={<Auth />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/find-experts" element={<FindExperts />} />
               <Route path="/community" element={<Community />} />
               <Route path="/help-requests" element={<HelpRequests />} />
               <Route path="/profile/:id" element={<Profile />} />
