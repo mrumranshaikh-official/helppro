@@ -8,10 +8,10 @@ import {
   ArrowRight,
   Shield
 } from "lucide-react";
-import stepPostRequest from "@/assets/step-post-request.svg";
-import stepGetMatched from "@/assets/step-get-matched.svg";
-import stepCollaborate from "@/assets/step-collaborate.svg";
-import stepEarnCoins from "@/assets/step-earn-coins.svg";
+import stepPostRequest from "@/assets/step-post-request.png";
+import stepGetMatched from "@/assets/step-get-matched.png";
+import stepCollaborate from "@/assets/step-collaborate.png";
+import stepEarnCoins from "@/assets/step-earn-coins.png";
 
 const HowItWorks = () => {
   const steps = [

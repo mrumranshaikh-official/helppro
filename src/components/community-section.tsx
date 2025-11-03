@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Star, Users, Code, Database, Globe, Shield } from "lucide-react";
-import communityNetwork from "@/assets/community-network.svg";
+import communityNetwork from "@/assets/community-network.png";
 
 const CommunitySection = () => {
   const professionals = [
