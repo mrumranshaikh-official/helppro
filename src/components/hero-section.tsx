@@ -6,7 +6,7 @@ import { ArrowRight, Users, Shield, TrendingUp, Rocket, Star, Clock, CheckCircle
 import ThemeToggle from "@/components/theme-toggle";
 import PeerSupportPopup from "@/components/peer-support-popup";
 import { useNavigate } from "react-router-dom";
-import heroCollaboration from "@/assets/hero-collaboration.png";
+import heroCollaboration from "@/assets/hero-collaboration.svg";
 
 const HeroSection = () => {
   const navigate = useNavigate();
