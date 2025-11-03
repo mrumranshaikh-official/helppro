@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Star, Users, Code, Database, Globe, Shield } from "lucide-react";
+import communityNetwork from "@/assets/community-network.svg";
 
 const CommunitySection = () => {
   const professionals = [
@@ -53,8 +54,17 @@ const CommunitySection = () => {
   ];
 
   return (
-    <section id="community" className="py-20 bg-gradient-subtle">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="community" className="relative py-20 bg-gradient-subtle overflow-hidden">
+      {/* Background Illustration */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-5">
+        <img 
+          src={communityNetwork} 
+          alt="Community network" 
+          className="w-full max-w-4xl h-auto object-contain"
+        />
+      </div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <Badge variant="secondary" className="mb-4">
