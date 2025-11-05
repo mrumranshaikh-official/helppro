@@ -25,6 +25,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import { helpRequestSchema } from "@/lib/validation";
+import { useMatchHelpers } from "@/hooks/useMatchHelpers";
 
 interface CreateRequestDialogProps {
   open: boolean;
@@ -45,6 +46,7 @@ const URGENCY_OPTIONS = [
 const CreateRequestDialog = ({ open, onOpenChange, onSuccess }: CreateRequestDialogProps) => {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const { findMatches } = useMatchHelpers();
   const [submitting, setSubmitting] = useState(false);
   const [userBalance, setUserBalance] = useState(0);
 
@@ -183,6 +185,11 @@ const CreateRequestDialog = ({ open, onOpenChange, onSuccess }: CreateRequestDia
       }
 
       toast.success('Help request posted! Waiting for helpers...');
+
+      // Automatically find matching helpers in the background
+      findMatches(newRequest.id).catch(error => {
+        console.error('Error finding matches:', error);
+      });
 
       // Reset form
       setTitle("");
