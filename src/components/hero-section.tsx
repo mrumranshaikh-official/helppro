@@ -56,37 +56,53 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Hero Content - Zepcruit-inspired Layout */}
-        <div className="text-left pt-20 sm:pt-24 pb-12 animate-fade-in max-w-4xl lg:max-w-6xl">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] mb-8 tracking-tight lg:max-w-3xl">
-            <span className="block animate-fade-in" style={{animationDelay: '0.1s'}}>
-              <span className="text-foreground">Get Instant</span>
-            </span>
-            <span className="block animate-fade-in" style={{animationDelay: '0.2s'}}>
-              <span className="bg-gradient-warm bg-clip-text text-transparent">Peer Support</span>
-            </span>
-            <span className="block animate-fade-in text-foreground" style={{animationDelay: '0.3s'}}>
-              For Your Professional Challenges
-            </span>
-          </h1>
+        {/* Desktop: Side-by-Side Layout */}
+        <div className="pt-20 sm:pt-24 pb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            {/* Left Column - Hero Content */}
+            <div className="animate-fade-in">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-black leading-[1.1] mb-8 tracking-tight">
+                <span className="block animate-fade-in" style={{animationDelay: '0.1s'}}>
+                  <span className="text-foreground">Get Instant</span>
+                </span>
+                <span className="block animate-fade-in" style={{animationDelay: '0.2s'}}>
+                  <span className="bg-gradient-warm bg-clip-text text-transparent">Peer Support</span>
+                </span>
+                <span className="block animate-fade-in text-foreground" style={{animationDelay: '0.3s'}}>
+                  For Your Professional Challenges
+                </span>
+              </h1>
 
-          
-          {/* CTA Button */}
-          <div className="animate-fade-in mb-8 lg:mb-12" style={{animationDelay: '0.6s'}}>
-            <Button 
-              size="lg" 
-              className="bg-gradient-warm hover:shadow-lg transition-all duration-500 shadow-md text-white text-lg px-10 py-4 h-auto group rounded-full font-semibold transform hover:scale-105"
-              onClick={() => navigate('/auth')}
-            >
-              GET STARTED
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </Button>
+              {/* CTA Button */}
+              <div className="animate-fade-in mb-8 lg:mb-0" style={{animationDelay: '0.6s'}}>
+                <Button 
+                  size="lg" 
+                  className="bg-gradient-warm hover:shadow-lg transition-all duration-500 shadow-md text-white text-lg px-10 py-4 h-auto group rounded-full font-semibold transform hover:scale-105"
+                  onClick={() => navigate('/auth')}
+                >
+                  GET STARTED
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Right Column - Interactive Demo with Enhanced Animations */}
+            <div className="relative animate-fade-in lg:pl-8" style={{animationDelay: '0.4s'}}>
+              {/* Circular design element behind chat */}
+              <div className="absolute inset-0 transform scale-110">
+                <div className="w-full h-full bg-gradient-circle rounded-full opacity-60"></div>
+              </div>
+              
+              {/* Peer Support Popup */}
+              <div className="relative z-10">
+                <PeerSupportPopup />
+              </div>
+            </div>
           </div>
-
         </div>
 
-        {/* 2-Column Layout for Desktop - Simplified Zepcruit Style */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start max-w-7xl mx-auto px-4">
+        {/* Below Hero - Content Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left Column - Main Content */}
           <div className="order-2 lg:order-1">
             {/* Subheadline */}
@@ -130,18 +146,8 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Column - Interactive Demo with Circular Background */}
-          <div className="order-1 lg:order-2 relative animate-fade-in lg:pl-8" style={{animationDelay: '0.9s'}}>
-            {/* Circular design element behind chat */}
-            <div className="absolute inset-0 transform scale-110">
-              <div className="w-full h-full bg-gradient-circle rounded-full opacity-60"></div>
-            </div>
-            
-            {/* Peer Support Popup */}
-            <div className="relative z-10 lg:sticky lg:top-24">
-              <PeerSupportPopup />
-            </div>
-          </div>
+          {/* Right Column - Spacer for layout balance on desktop */}
+          <div className="order-1 lg:order-2 hidden lg:block"></div>
         </div>
 
         {/* Bottom Section - Welcome Message Zepcruit Style */}
