@@ -57,8 +57,8 @@ const HeroSection = () => {
         </div>
 
         {/* Hero Content - Zepcruit-inspired Layout */}
-        <div className="text-left pt-20 sm:pt-24 pb-12 animate-fade-in max-w-4xl">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] mb-8 tracking-tight">
+        <div className="text-left pt-20 sm:pt-24 pb-12 animate-fade-in max-w-4xl lg:max-w-6xl">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] mb-8 tracking-tight lg:max-w-3xl">
             <span className="block animate-fade-in" style={{animationDelay: '0.1s'}}>
               <span className="text-foreground">Get Instant</span>
             </span>
@@ -72,7 +72,7 @@ const HeroSection = () => {
 
           
           {/* CTA Button */}
-          <div className="animate-fade-in mb-8" style={{animationDelay: '0.6s'}}>
+          <div className="animate-fade-in mb-8 lg:mb-12" style={{animationDelay: '0.6s'}}>
             <Button 
               size="lg" 
               className="bg-gradient-warm hover:shadow-lg transition-all duration-500 shadow-md text-white text-lg px-10 py-4 h-auto group rounded-full font-semibold transform hover:scale-105"
@@ -86,7 +86,7 @@ const HeroSection = () => {
         </div>
 
         {/* 2-Column Layout for Desktop - Simplified Zepcruit Style */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start max-w-7xl mx-auto px-4">
           {/* Left Column - Main Content */}
           <div className="order-2 lg:order-1">
             {/* Subheadline */}
@@ -131,14 +131,14 @@ const HeroSection = () => {
           </div>
 
           {/* Right Column - Interactive Demo with Circular Background */}
-          <div className="order-1 lg:order-2 relative animate-fade-in" style={{animationDelay: '0.9s'}}>
+          <div className="order-1 lg:order-2 relative animate-fade-in lg:pl-8" style={{animationDelay: '0.9s'}}>
             {/* Circular design element behind chat */}
             <div className="absolute inset-0 transform scale-110">
               <div className="w-full h-full bg-gradient-circle rounded-full opacity-60"></div>
             </div>
             
             {/* Peer Support Popup */}
-            <div className="relative z-10">
+            <div className="relative z-10 lg:sticky lg:top-24">
               <PeerSupportPopup />
             </div>
           </div>
