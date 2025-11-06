@@ -6,6 +6,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import CoinsWidget from "@/components/coins-widget";
 import CreateRequestDialog from "@/components/create-request-dialog";
+import { NotificationsPopover } from "@/components/notifications-popover";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -93,6 +94,7 @@ const Navbar = () => {
             {user && (
               <>
                 <CoinsWidget />
+                <NotificationsPopover />
                 <Button 
                   className="bg-gradient-primary hover:opacity-90 transition-opacity"
                   onClick={() => setIsCreateDialogOpen(true)}

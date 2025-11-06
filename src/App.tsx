@@ -12,6 +12,7 @@ import Community from "./pages/Community";
 import FindExperts from "./pages/FindExperts";
 import HelpRequests from "./pages/HelpRequests";
 import Profile from "./pages/Profile";
+import EditProfile from "./pages/EditProfile";
 import Messages from "./pages/Messages";
 import Coins from "./pages/Coins";
 import NotFound from "./pages/NotFound";
@@ -39,6 +40,7 @@ const App = () => (
               <Route path="/community" element={<Community />} />
               <Route path="/help-requests" element={<HelpRequests />} />
               <Route path="/profile/:id" element={<Profile />} />
+              <Route path="/profile/edit" element={<EditProfile />} />
               <Route path="/messages" element={<Messages />} />
               <Route path="/coins" element={<Coins />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

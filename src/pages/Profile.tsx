@@ -13,7 +13,8 @@ import {
   Star,
   MessageCircle,
   HandHelping,
-  Calendar
+  Calendar,
+  Edit
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
@@ -216,7 +217,7 @@ const Profile = () => {
                 </div>
 
                 {/* Action Buttons */}
-                {!isOwnProfile && (
+                {!isOwnProfile ? (
                   <div className="flex gap-3">
                     <Button 
                       className="bg-gradient-warm hover:shadow-lg transition-all text-white"
@@ -230,6 +231,14 @@ const Profile = () => {
                       Offer Help
                     </Button>
                   </div>
+                ) : (
+                  <Button 
+                    className="flex items-center gap-2"
+                    onClick={() => navigate('/profile/edit')}
+                  >
+                    <Edit className="w-4 h-4" />
+                    Edit Profile
+                  </Button>
                 )}
               </div>
             </div>

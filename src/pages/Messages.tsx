@@ -57,6 +57,8 @@ interface Message {
   file_type: string | null;
 }
 
+import { createNotification } from '@/components/notification-helper';
+
 const Messages = () => {
   const { user } = useAuth();
   const { toast } = useToast();
@@ -186,6 +188,21 @@ const Messages = () => {
           sender_id: user.id,
           content: newMessage.trim(),
         });
+
+      // Notify other participant
+      const otherUserId = selectedConversation.requester_id === user.id 
+        ? selectedConversation.helper_id 
+        : selectedConversation.requester_id;
+      
+      if (otherUserId) {
+        await createNotification({
+          userId: otherUserId,
+          title: 'New Message',
+          message: `You received a new message about "${selectedConversation.title}"`,
+          type: 'message',
+          link: '/messages'
+        });
+      }
 
       if (error) throw error;
       setNewMessage("");
