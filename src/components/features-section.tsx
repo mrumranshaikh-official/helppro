@@ -14,32 +14,32 @@ const FeaturesSection = () => {
     {
       icon: TrendingUp,
       title: "Fair Point System",
-      description: "Transparent points economy ensures fair exchange. Help others, earn points, get help when needed."
+      description: "Transparent points economy for balanced workload sharing. Contribute when you can, receive support when you need it."
     },
     {
       icon: Users,
       title: "Credibility Tracking",
-      description: "Build your professional reputation through consistent help and quality work."
+      description: "Build your professional reputation through consistent collaboration and quality contributions."
     },
     {
       icon: Shield,
-      title: "Mandatory Payback",
-      description: "System-enforced reciprocity ensures everyone contributes to the community."
+      title: "Balanced Participation",
+      description: "Community-driven reciprocity ensures everyone contributes and benefits fairly."
     },
     {
       icon: Zap,
       title: "Instant Matching",
-      description: "AI-powered matching connects you with the right expert for your specific needs."
+      description: "AI-powered matching connects you with peers who have the right skills to collaborate on your tasks."
     },
     {
       icon: Target,
       title: "Skill-based Routing",
-      description: "Your requests reach professionals with the exact expertise you need."
+      description: "Your project reaches professionals with the exact expertise to help you complete it."
     },
     {
       icon: Heart,
-      title: "Burnout Prevention",
-      description: "Share the load, reduce stress, and create a sustainable work-life balance."
+      title: "Pressure Relief",
+      description: "Share workloads, reduce stress, and maintain a sustainable work-life balance together."
     }
   ];
 

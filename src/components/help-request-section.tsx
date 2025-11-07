@@ -128,14 +128,14 @@ const HelpRequestSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Get Help or{" "}
+            Share Tasks or{" "}
             <span className="bg-gradient-warm bg-clip-text text-transparent">
-              Offer Support
+              Collaborate on Projects
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Connect with peers for real-time assistance. Fair, transparent, and
-            built on mutual support.
+            Connect with peers for real-time collaboration. Fair, transparent, and
+            built on shared workloads.
           </p>
         </div>
 
@@ -145,15 +145,15 @@ const HelpRequestSection = () => {
             <CardContent className="p-6 md:p-8">
               <div className="flex items-center gap-2 mb-6">
                 <Send className="w-5 h-5 text-primary" />
-                <h3 className="text-2xl font-bold">Request Help</h3>
+                <h3 className="text-2xl font-bold">Share a Task</h3>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <Label htmlFor="title">What do you need help with?</Label>
+                  <Label htmlFor="title">What task do you need support with?</Label>
                   <Input
                     id="title"
-                    placeholder="Brief title of your issue..."
+                    placeholder="Brief description of the task..."
                     value={formData.title}
                     onChange={(e) =>
                       setFormData({ ...formData, title: e.target.value })
@@ -209,7 +209,7 @@ const HelpRequestSection = () => {
                   <Label htmlFor="description">Detailed Description</Label>
                   <Textarea
                     id="description"
-                    placeholder="Provide as much detail as possible about your issue, what you've tried, error messages, etc."
+                    placeholder="Describe the task, what you've tried so far, and what collaboration you're looking for..."
                     value={formData.description}
                     onChange={(e) =>
                       setFormData({ ...formData, description: e.target.value })
@@ -237,7 +237,7 @@ const HelpRequestSection = () => {
                   size="lg"
                 >
                   <Send className="w-4 h-4 mr-2" />
-                  Submit Help Request
+                  Share Task
                 </Button>
               </form>
             </CardContent>
@@ -248,7 +248,7 @@ const HelpRequestSection = () => {
             <Card className="bg-card border-border">
               <CardContent className="p-6 md:p-8">
                 <h3 className="text-2xl font-bold mb-6">
-                  Popular Help Categories
+                  Popular Collaboration Areas
                 </h3>
                 <div className="space-y-3">
                   {categories.map((category, index) => (
@@ -261,7 +261,7 @@ const HelpRequestSection = () => {
                         <span className="font-medium">{category.name}</span>
                       </div>
                       <Badge variant="secondary">
-                        {category.requests} requests
+                        {category.requests} active
                       </Badge>
                     </div>
                   ))}
@@ -306,7 +306,7 @@ const HelpRequestSection = () => {
         {/* Recent Help Requests */}
         <Card className="bg-card border-border">
           <CardContent className="p-6 md:p-8">
-            <h3 className="text-2xl font-bold mb-6">Recent Help Requests</h3>
+            <h3 className="text-2xl font-bold mb-6">Recent Collaboration Requests</h3>
             <div className="space-y-4">
               {recentRequests.map((request, index) => (
                 <div
@@ -346,7 +346,7 @@ const HelpRequestSection = () => {
                     </div>
                     {request.status === "open" && (
                       <Button size="sm" variant="outline">
-                        Help Now
+                        Collaborate
                       </Button>
                     )}
                   </div>

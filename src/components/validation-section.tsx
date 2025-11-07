@@ -46,11 +46,11 @@ const ValidationSection = () => {
             Why HelpPro Works
           </Badge>
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Unlike Other <span className="bg-gradient-primary bg-clip-text text-transparent">Professional Platforms</span>
+            A Different Approach to <span className="bg-gradient-primary bg-clip-text text-transparent">Professional Collaboration</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Existing platforms are either too broad, transaction-focused, or unreliable. 
-            We built something different.
+            Traditional platforms focus on networking or transactions. 
+            We focus on peer-to-peer workload sharing and real collaboration.
           </p>
         </div>
 
@@ -66,7 +66,7 @@ const ValidationSection = () => {
                 </div>
                 <div>
                   <p className="font-medium">Sarah J. - Frontend Dev</p>
-                  <p className="text-sm text-muted-foreground">Needs: React testing setup</p>
+                  <p className="text-sm text-muted-foreground">Task: React testing setup collaboration</p>
                 </div>
               </div>
               <Badge variant="secondary">2 min ago</Badge>
@@ -78,7 +78,7 @@ const ValidationSection = () => {
                 </div>
                 <div>
                   <p className="font-medium">Mike K. - DevOps</p>
-                  <p className="text-sm text-muted-foreground">Offering: Docker optimization tips</p>
+                  <p className="text-sm text-muted-foreground">Sharing: Docker optimization expertise</p>
                 </div>
               </div>
               <Badge className="bg-green-500 text-white">Available</Badge>
@@ -90,7 +90,7 @@ const ValidationSection = () => {
                 </div>
                 <div>
                   <p className="font-medium">Alex L. - Designer</p>
-                  <p className="text-sm text-muted-foreground">Helped: UX audit completed ✓</p>
+                  <p className="text-sm text-muted-foreground">Completed: UX audit collaboration ✓</p>
                 </div>
               </div>
               <Badge variant="outline">+15 points</Badge>

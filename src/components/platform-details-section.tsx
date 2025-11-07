@@ -26,26 +26,26 @@ const PlatformDetailsSection = () => {
     {
       id: "borderless",
       icon: Globe,
-      title: "Borderless Network",
-      subtitle: "Global Reach",
-      description: "Connect with IT professionals worldwide without geographical limitations.",
+      title: "Global Collaboration",
+      subtitle: "Borderless Support",
+      description: "Share workloads with professionals worldwide, anytime, anywhere.",
       details: [
-        "24/7 global network coverage",
+        "24/7 global peer network",
         "Multi-language support",
-        "Cross-timezone collaboration",
-        "Regional expertise matching"
+        "Cross-timezone task sharing",
+        "Regional skill matching"
       ]
     },
     {
       id: "realtime",
       icon: Clock,
-      title: "Real-time Assistance",
-      subtitle: "Instant Support",
-      description: "Get help when you need it most. Our network operates around the clock.",
+      title: "Real-time Collaboration",
+      subtitle: "Instant Connection",
+      description: "Connect with peers instantly to tackle tasks together, whenever pressure builds.",
       details: [
-        "Instant expert matching",
-        "Live chat and video support",
-        "Priority queue system",
+        "Instant peer matching",
+        "Live collaboration tools",
+        "Priority for urgent tasks",
         "Average response: 15 min"
       ]
     },
@@ -66,13 +66,13 @@ const PlatformDetailsSection = () => {
       id: "fairpoints",
       icon: TrendingUp,
       title: "Fair Point System",
-      subtitle: "Transparent Economy",
-      description: "A balanced points economy ensures fair exchange of expertise and services.",
+      subtitle: "Balanced Exchange",
+      description: "A balanced points economy ensures fair workload sharing across the community.",
       details: [
-        "Earn points by helping others",
-        "Spend points when you need help",
-        "Transparent pricing structure",
-        "No hidden fees or charges"
+        "Earn points by sharing your skills",
+        "Spend points when workload builds",
+        "Transparent contribution tracking",
+        "Community-driven fairness"
       ]
     },
     {
@@ -80,12 +80,12 @@ const PlatformDetailsSection = () => {
       icon: Zap,
       title: "AI-Powered Matching",
       subtitle: "Smart Connections",
-      description: "Advanced algorithms connect you with the perfect expert for your needs.",
+      description: "Advanced algorithms match you with the right peer to collaborate on your task.",
       details: [
-        "Skills-based routing",
-        "Expertise level matching",
+        "Skills-based peer matching",
+        "Experience level pairing",
         "Availability optimization",
-        "Success rate tracking"
+        "Collaboration success tracking"
       ]
     },
     {
@@ -121,12 +121,12 @@ const PlatformDetailsSection = () => {
       id: "help",
       icon: HandHeart,
       step: "02",
-      title: "Help Others & Earn",
-      description: "Use your expertise to assist fellow professionals and build your points balance.",
+      title: "Collaborate & Contribute",
+      description: "Share your expertise to help peers complete tasks and build your points balance.",
       details: [
-        "Browse help requests",
-        "Accept matching tasks",
-        "Earn points per hour",
+        "Browse collaboration requests",
+        "Accept matching projects",
+        "Earn points through contribution",
         "Build your reputation"
       ]
     },
@@ -134,13 +134,13 @@ const PlatformDetailsSection = () => {
       id: "spend",
       icon: Coins,
       step: "03",
-      title: "Get Help When Needed",
-      description: "Use your earned points to access expert help immediately when you need assistance.",
+      title: "Share Your Workload",
+      description: "Use your earned points to find peers who'll collaborate on tasks when pressure builds.",
       details: [
-        "Post your help request",
-        "Get matched with experts",
-        "Spend points fairly",
-        "Receive quality assistance"
+        "Post your task request",
+        "Get matched with skilled peers",
+        "Spend points for collaboration",
+        "Complete projects together"
       ]
     },
     {
@@ -163,21 +163,21 @@ const PlatformDetailsSection = () => {
       id: "vision",
       icon: Target,
       title: "Our Vision",
-      description: "Creating the first real-time borderless human safety net for the tech industry.",
+      description: "Building the world's first peer-to-peer workload sharing platform where professionals reduce pressure and complete projects together.",
       color: "primary"
     },
     {
       id: "problem",
       icon: Users,
       title: "The Problem",
-      description: "IT burnout costs billions annually, and too many professionals work in isolation without immediate access to help.",
+      description: "Professional burnout costs billions annually. Too many talented people struggle alone with workloads that could be shared.",
       color: "destructive"
     },
     {
       id: "solution",
       icon: Shield,
       title: "Our Solution",
-      description: "A transparent, points-based ecosystem where helping others creates value and builds community.",
+      description: "A transparent, peer-to-peer ecosystem where sharing workloads creates value, reduces pressure, and builds genuine community.",
       color: "success"
     }
   ];
@@ -366,7 +366,7 @@ const PlatformDetailsSection = () => {
                     <Heart className="w-12 h-12 text-primary mx-auto mb-4" />
                     <h3 className="text-2xl font-bold mb-3">Join Our Community</h3>
                     <p className="text-lg text-muted-foreground mb-6">
-                      Be part of building a fairer, more humane professional world through collaboration.
+                      Join professionals who believe in sharing workloads, reducing pressure, and succeeding together.
                     </p>
                     <button className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors">
                       Get Started Today

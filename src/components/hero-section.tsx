@@ -63,13 +63,13 @@ const HeroSection = () => {
             <div className="animate-fade-in">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-black leading-[1.1] mb-8 tracking-tight">
                 <span className="block animate-fade-in" style={{animationDelay: '0.1s'}}>
-                  <span className="text-foreground">Get Instant</span>
+                  <span className="text-foreground">Share Workloads,</span>
                 </span>
                 <span className="block animate-fade-in" style={{animationDelay: '0.2s'}}>
-                  <span className="bg-gradient-warm bg-clip-text text-transparent">Peer Support</span>
+                  <span className="bg-gradient-warm bg-clip-text text-transparent">Complete Projects</span>
                 </span>
                 <span className="block animate-fade-in text-foreground" style={{animationDelay: '0.3s'}}>
-                  For Your Professional Challenges
+                  Together With Peers
                 </span>
               </h1>
 
@@ -107,7 +107,7 @@ const HeroSection = () => {
           <div className="order-2 lg:order-1">
             {/* Subheadline */}
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed animate-fade-in max-w-xl" style={{animationDelay: '0.8s'}}>
-              Connect with verified professionals in seconds. Give help, get help back. Real expertise when you need it most.
+              Connect with verified professionals. Collaborate on tasks, reduce pressure, and complete work together. Real peer support when you need it most.
             </p>
 
             {/* Community Proof - Simplified */}
@@ -154,12 +154,12 @@ const HeroSection = () => {
         <div className="text-center max-w-4xl mx-auto pt-20 pb-12 px-4 animate-fade-in" style={{animationDelay: '1.4s'}}>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-foreground">
             Welcome to the Future of <br />
-            <span className="bg-gradient-warm bg-clip-text text-transparent">Professional Networking</span>
+            <span className="bg-gradient-warm bg-clip-text text-transparent">Workload Sharing</span>
           </h2>
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            HelpPro was born from the idea that peer support should be fast and efficient for professionals. 
-            We've reimagined networking to bring not just speed, but also purpose together.
+            HelpPro was built on the belief that professionals shouldn't work in isolation. 
+            We've created a platform where teams collaborate, share tasks, and reduce pressure together.
           </p>
           
           <Button 
